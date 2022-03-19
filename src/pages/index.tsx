@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
@@ -14,7 +15,29 @@ const Text2 = styled('div')<{ disable: boolean }>(({ disable }) => ({
   textDecoration: disable ? 'line-through' : 'none',
 }))
 
-const IndexPage: React.VFC = function () {
+type edge = {
+  node: {
+    frontmatter: {
+      categories: string[]
+      date: string
+      summary: string
+      title: string
+    }
+    id: string
+  }
+}
+
+type IndexPageProps = {
+  data: {
+    allMarkdownRemark: {
+      edges: edge[]
+    }
+  }
+}
+
+const IndexPage: React.VFC<IndexPageProps> = function ({ data }) {
+  console.log(data.allMarkdownRemark.edges[0].node.frontmatter.categories)
+
   return (
     <div>
       <p
@@ -30,5 +53,23 @@ const IndexPage: React.VFC = function () {
     </div>
   )
 }
+
+export const indexQuery = graphql`
+  query {
+    allMarkdownRemark {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date
+            summary
+            categories
+          }
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage
