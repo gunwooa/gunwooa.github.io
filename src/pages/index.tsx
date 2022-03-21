@@ -51,14 +51,14 @@ type IndexPageProps = {
   }
 }
 
-const IndexPage: React.VFC<IndexPageProps> = function ({
+const IndexPage: React.VFC<IndexPageProps> = ({
   data: {
     allMarkdownRemark: { edges },
     file: {
       childImageSharp: { gatsbyImageData: profileImage },
     },
   },
-}) {
+}) => {
   const {
     node: {
       frontmatter: {
@@ -87,6 +87,17 @@ const IndexPage: React.VFC<IndexPageProps> = function ({
       <Text1 disable={true}>나는 천제다</Text1>
       <Text2 disable={false}>나는 천제다</Text2>
       <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
+      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
+      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
+      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
+      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
+      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
+      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
+      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
+      <GatsbyImage image={profileImage} alt="Post Item Image" />
+      <GatsbyImage image={profileImage} alt="Post Item Image" />
+      <GatsbyImage image={profileImage} alt="Post Item Image" />
+      <GatsbyImage image={profileImage} alt="Post Item Image" />
       <GatsbyImage image={profileImage} alt="Post Item Image" />
     </div>
   )

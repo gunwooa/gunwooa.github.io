@@ -1,13 +1,21 @@
 import 'prismjs/themes/prism-tomorrow.css'
 
 import React from 'react'
-import { Global } from '@emotion/react'
+import { Global, ThemeProvider } from '@emotion/react'
 
+import Header from './src/components/Header'
+import Layout from './src/components/Layout'
+import { theme } from './src/styles'
 import { resetStyles } from './src/styles/reset'
+
+export const wrapRootElement = ({ element }) => (
+  <ThemeProvider theme={theme}>{element}</ThemeProvider>
+)
 
 export const wrapPageElement = ({ element }) => (
   <>
     <Global styles={resetStyles} />
-    <div>{element}</div>
+    <Header />
+    <Layout>{element}</Layout>
   </>
 )

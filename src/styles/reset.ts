@@ -195,4 +195,9 @@ export const resetStyles = css`
   #__next {
     isolation: isolate;
   }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `
