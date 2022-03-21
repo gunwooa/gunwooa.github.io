@@ -36,6 +36,9 @@ type Edge = {
       thumbnail: Thumbnail
     }
     id: string
+    fields: {
+      slug: string
+    }
   }
 }
 
@@ -63,10 +66,12 @@ const IndexPage: React.VFC<IndexPageProps> = function ({
           childImageSharp: { gatsbyImageData },
         },
       },
+      fields: { slug },
     },
   } = edges[0]
 
   console.log(gatsbyImageData)
+  console.log(slug)
   console.log(profileImage)
 
   return (
@@ -93,6 +98,9 @@ export const indexQuery = graphql`
       edges {
         node {
           id
+          fields {
+            slug
+          }
           frontmatter {
             title
             summary
@@ -100,7 +108,7 @@ export const indexQuery = graphql`
             categories
             thumbnail {
               childImageSharp {
-                gatsbyImageData(width: 300, height: 200)
+                gatsbyImageData(width: 768, height: 400)
               }
             }
           }
