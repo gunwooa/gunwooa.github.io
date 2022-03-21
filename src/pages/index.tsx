@@ -76,7 +76,7 @@ const IndexPage: React.VFC<IndexPageProps> = ({
 
   return (
     <div>
-      <p
+      {/* <p
         css={css`
           font-size: 2rem;
         `}
@@ -85,8 +85,8 @@ const IndexPage: React.VFC<IndexPageProps> = ({
       </p>
 
       <Text1 disable={true}>나는 천제다</Text1>
-      <Text2 disable={false}>나는 천제다</Text2>
-      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
+      <Text2 disable={false}>나는 천제다</Text2> 
+       <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
       <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
       <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
       <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
@@ -98,7 +98,7 @@ const IndexPage: React.VFC<IndexPageProps> = ({
       <GatsbyImage image={profileImage} alt="Post Item Image" />
       <GatsbyImage image={profileImage} alt="Post Item Image" />
       <GatsbyImage image={profileImage} alt="Post Item Image" />
-      <GatsbyImage image={profileImage} alt="Post Item Image" />
+      <GatsbyImage image={profileImage} alt="Post Item Image" /> */}
     </div>
   )
 }

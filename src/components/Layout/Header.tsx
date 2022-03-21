@@ -2,10 +2,11 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import { HiOutlineCode, HiViewGrid } from 'react-icons/hi'
+import { IoLogoBuffer } from 'react-icons/io'
+import { HiViewGrid } from 'react-icons/hi'
 import { GiOverkill } from 'react-icons/gi'
 
-import { pcScreen, mobileScreen } from 'styles'
+import { pcMediaQuery, mobileMediaQuery, layoutWidth } from 'styles'
 
 const Header: React.VFC = () => {
   return (
@@ -15,12 +16,12 @@ const Header: React.VFC = () => {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          width: 72rem;
+          width: ${layoutWidth}rem;
         `}
       >
         <HomeLink to="/">
-          <HiOutlineCode css={homeIcon} />
-          개로그
+          <IoLogoBuffer css={homeIcon} />
+          GWDevlog
         </HomeLink>
 
         <div
@@ -70,7 +71,7 @@ const HeaderBox = styled.div`
     }
   }
 
-  ${mobileScreen} {
+  ${mobileMediaQuery} {
     height: 5rem;
     padding: 0 1.6rem;
   }
@@ -83,7 +84,7 @@ const HomeLink = styled(Link)`
   font-weight: bold;
   color: #ffffff;
 
-  ${pcScreen} {
+  ${pcMediaQuery} {
     padding: 0.6rem;
     border-radius: 0.6rem;
     :hover {
@@ -91,14 +92,14 @@ const HomeLink = styled(Link)`
     }
   }
 
-  ${mobileScreen} {
+  ${mobileMediaQuery} {
     font-size: 1.8rem;
     font-weight: 600;
   }
 `
 
 const MenuLink = styled(Link)`
-  ${pcScreen} {
+  ${pcMediaQuery} {
     padding: 0.6rem;
     border-radius: 50%;
     :hover {
@@ -112,7 +113,7 @@ const styledIcon = css`
   height: 3rem;
   color: #ffffff;
 
-  ${mobileScreen} {
+  ${mobileMediaQuery} {
     width: 2.6rem;
     height: 2.6rem;
   }
@@ -123,7 +124,7 @@ const homeIcon = css`
   margin-top: -0.2rem;
   margin-right: 0.6rem;
 
-  ${mobileScreen} {
+  ${mobileMediaQuery} {
     margin-right: 0.4rem;
   }
 `

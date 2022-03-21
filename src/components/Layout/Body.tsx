@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import { mobileScreen } from 'styles'
+import { mobileMediaQuery, layoutWidth } from 'styles'
 
 type LayoutProps = {}
 
@@ -10,13 +10,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 }
 
 const LayoutWrapper = styled.div`
-  width: 72rem;
+  width: ${layoutWidth}rem;
   margin: 0 auto;
+  min-height: calc(100vh - 12.8rem);
 
-  ${mobileScreen} {
+  ${mobileMediaQuery} {
     width: 100%;
-    margin: 0;
     padding: 0 1.6rem;
+    min-height: calc(100vh - 10rem);
   }
 `
 
