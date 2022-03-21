@@ -6,7 +6,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-plugin-typescript',
+      resolve: `gatsby-plugin-typescript`,
       options: {
         isTSX: true,
         allExtensions: true,
@@ -21,27 +21,43 @@ module.exports = {
         path: `${__dirname}/contents`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/static`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: ['auto', 'webp'],
+          quality: 100,
+          placeholder: 'blurred',
+        },
+      },
+    },
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
           {
-            resolve: 'gatsby-remark-smartypants',
+            resolve: `gatsby-remark-smartypants`,
             options: {
-              dashes: 'oldschool',
+              dashes: `oldschool`,
             },
           },
           {
-            resolve: 'gatsby-remark-prismjs',
+            resolve: `gatsby-remark-prismjs`,
             options: {
-              classPrefix: 'language-',
+              classPrefix: `language-`,
             },
           },
           {
-            resolve: 'gatsby-remark-images',
+            resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 768,
               quality: 100,
@@ -49,14 +65,14 @@ module.exports = {
             },
           },
           {
-            resolve: 'gatsby-remark-copy-linked-files',
+            resolve: `gatsby-remark-copy-linked-files`,
             options: {},
           },
           {
-            resolve: 'gatsby-remark-external-links',
+            resolve: `gatsby-remark-external-links`,
             options: {
-              target: '_blank',
-              rel: 'nofollow',
+              target: `_blank`,
+              rel: `nofollow`,
             },
           },
         ],
