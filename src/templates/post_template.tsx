@@ -139,7 +139,7 @@ export const queryMarkdownDataBySlug = graphql`
             title
             summary
             date(formatString: "YYYY.MM.DD.")
-            categories
+            category
             thumbnail {
               childImageSharp {
                 gatsbyImageData

@@ -29,7 +29,7 @@ type Thumbnail = {
 type Edge = {
   node: {
     frontmatter: {
-      categories: string[]
+      category: string[]
       date: string
       summary: string
       title: string
@@ -69,10 +69,6 @@ const IndexPage: React.VFC<IndexPageProps> = ({
       fields: { slug },
     },
   } = edges[0]
-
-  console.log(gatsbyImageData)
-  console.log(slug)
-  console.log(profileImage)
 
   return (
     <div>
@@ -116,7 +112,7 @@ export const indexQuery = graphql`
             title
             summary
             date(formatString: "YYYY.MM.DD.")
-            categories
+            category
             thumbnail {
               childImageSharp {
                 gatsbyImageData(width: 768, height: 400)
