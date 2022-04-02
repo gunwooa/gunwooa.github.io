@@ -6,7 +6,13 @@ import { IoLogoBuffer } from 'react-icons/io'
 import { HiViewGrid } from 'react-icons/hi'
 import { GiOverkill } from 'react-icons/gi'
 
-import { pcMediaQuery, mobileMediaQuery, layoutWidth, mainGradientAnimation } from 'styles'
+import {
+  pcMediaQuery,
+  mobileMediaQuery,
+  layoutWidth,
+  headerFooterHeight,
+  mainGradientAnimation,
+} from 'styles'
 
 const Header: React.VFC = () => {
   return (
@@ -54,12 +60,12 @@ const HeaderBox = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 6.4rem;
+  height: ${headerFooterHeight.pc}rem;
 
   ${mainGradientAnimation};
 
   ${mobileMediaQuery} {
-    height: 5rem;
+    height: ${headerFooterHeight.mobile}rem;
     padding: 0 1.6rem;
   }
 `

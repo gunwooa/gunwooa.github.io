@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import { mobileMediaQuery, layoutWidth } from 'styles'
+import { mobileMediaQuery, layoutWidth, headerFooterHeight } from 'styles'
 
 type LayoutProps = {}
 
@@ -11,13 +11,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
 const LayoutWrapper = styled.div`
   width: ${layoutWidth}rem;
+  min-height: calc(100vh - ${headerFooterHeight.pc * 2}rem);
   margin: 0 auto;
-  min-height: calc(100vh - 12.8rem);
 
   ${mobileMediaQuery} {
     width: 100%;
+    min-height: calc(100vh - ${headerFooterHeight.mobile * 2}rem);
     padding: 0 1.6rem;
-    min-height: calc(100vh - 10rem);
   }
 `
 

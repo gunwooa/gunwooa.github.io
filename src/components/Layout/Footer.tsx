@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 
-import { pcMediaQuery, mobileMediaQuery, layoutWidth } from 'styles'
+import { pcMediaQuery, mobileMediaQuery, layoutWidth, headerFooterHeight } from 'styles'
 
 const Footer: React.VFC = () => {
   const today = new Date()
@@ -75,11 +75,11 @@ const FooterBox = styled.footer`
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 6.4rem;
+  height: ${headerFooterHeight.pc}rem;
   background-color: rgba(98, 92, 96, 0.1);
 
   ${mobileMediaQuery} {
-    height: 5rem;
+    height: ${headerFooterHeight.mobile}rem;
     padding: 0 1.6rem;
   }
 `

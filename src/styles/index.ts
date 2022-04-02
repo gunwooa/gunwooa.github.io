@@ -1,6 +1,10 @@
 import { css } from '@emotion/react'
 
 export const layoutWidth = window.innerWidth * (1 / 2) * 0.1 // 화면 절반의 넓이
+export const headerFooterHeight = {
+  pc: 6.5,
+  mobile: 5,
+}
 
 export const colors = {
   white: '#FFFFFF',
