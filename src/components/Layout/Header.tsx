@@ -6,7 +6,7 @@ import { IoLogoBuffer } from 'react-icons/io'
 import { HiViewGrid } from 'react-icons/hi'
 import { GiOverkill } from 'react-icons/gi'
 
-import { pcMediaQuery, mobileMediaQuery, layoutWidth } from 'styles'
+import { pcMediaQuery, mobileMediaQuery, layoutWidth, mainGradientAnimation } from 'styles'
 
 const Header: React.VFC = () => {
   return (
@@ -55,21 +55,8 @@ const HeaderBox = styled.div`
   justify-content: center;
   width: 100%;
   height: 6.4rem;
-  background-image: linear-gradient(to left, #eeaeca, #42a5f5, #26c6da);
-  background-size: 300% 300%;
-  animation: gradient 10s ease infinite;
 
-  @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
+  ${mainGradientAnimation};
 
   ${mobileMediaQuery} {
     height: 5rem;
