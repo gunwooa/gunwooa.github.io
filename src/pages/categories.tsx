@@ -1,53 +1,28 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import { IGatsbyImageData } from 'gatsby-plugin-image'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
 import { colors, mainGradientAnimation, mobileMediaQuery, pcMediaQuery } from 'styles'
-
-type Thumbnail = {
-  childImageSharp: {
-    gatsbyImageData: IGatsbyImageData
-  }
-}
-
-type Frontmatter = {
-  title: string
-  date: string
-  summary: string
-  thumbnail: Thumbnail
-}
-
-type Edge = {
-  node: {
-    id: string
-    fields: {
-      slug: string
-    }
-    frontmatter: Frontmatter
-  }
-}
-
-type category = {
-  fieldValue: string
-  totalCount: number
-  edges: Edge[]
-}
+import { Edges } from 'types'
 
 type CategoriesPageProps = {
   data: {
-    categories: {
-      group: category[]
+    categoryData: {
+      group: {
+        fieldValue: string
+        totalCount: number
+        edges: Edges
+      }[]
     }
   }
 }
 
-const CategoriesPage: React.VFC<CategoriesPageProps> = ({ data }) => {
-  const {
-    categories: { group: categories },
-  } = data
-
+const CategoriesPage: React.VFC<CategoriesPageProps> = ({
+  data: {
+    categoryData: { group: categories },
+  },
+}) => {
   return (
     <CategoriesBox>
       <Categories>
@@ -242,8 +217,8 @@ const CategoriesRILinkAnimationEmoji = styled.span`
 `
 
 export const categoriesQuery = graphql`
-  query {
-    categories: allMarkdownRemark(limit: 100) {
+  {
+    categoryData: allMarkdownRemark(limit: 100) {
       group(field: frontmatter___category) {
         fieldValue
         totalCount

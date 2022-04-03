@@ -13,7 +13,8 @@
       "components/*": ["./components/*"],
       "utils/*": ["./utils/*"],
       "hooks/*": ["./hooks/*"],
-      "styles/*": ["./styles/*"]
+      "styles/*": ["./styles/*"],
+      "types/*": ["./types/*"]
     },
     "esModuleInterop": true,
     "skipLibCheck": true,
