@@ -62,13 +62,7 @@ const CategoriesPage: React.VFC<CategoriesPageProps> = ({
   )
 }
 
-const CategoriesBox = styled.div`
-  padding: 5rem 0 10rem 0;
-
-  ${mobileMediaQuery} {
-    padding: 3rem 0 6rem 0;
-  }
-`
+const CategoriesBox = styled.div``
 
 const Categories = styled.ul`
   border-radius: 1.6rem;

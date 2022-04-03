@@ -14,10 +14,10 @@ export const wrapRootElement = ({ element }) => (
 )
 
 export const wrapPageElement = ({ element }) => (
-  <>
+  <div>
     <Global styles={resetStyles} />
     <Header />
     <Body>{element}</Body>
     <Footer />
-  </>
+  </div>
 )

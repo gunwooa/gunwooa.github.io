@@ -13,11 +13,12 @@ const LayoutWrapper = styled.div`
   width: ${layoutWidth}rem;
   min-height: calc(100vh - ${headerFooterHeight.pc * 2}rem);
   margin: 0 auto;
+  padding: 5rem 0 10rem 0;
 
   ${mobileMediaQuery} {
     width: 100%;
     min-height: calc(100vh - ${headerFooterHeight.mobile * 2}rem);
-    padding: 0 1.6rem;
+    padding: 3rem 1.6rem 6rem 1.6rem;
   }
 `
 

@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 
-export const layoutWidth = window.innerWidth * (1 / 2) * 0.1 // 화면 절반의 넓이
+// 화면 절반의 넓이
+export const layoutWidth = typeof window !== 'undefined' ? window.innerWidth * (1 / 2) * 0.1 : 0
 export const headerFooterHeight = {
   pc: 6.5,
   mobile: 5,
