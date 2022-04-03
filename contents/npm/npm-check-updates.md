@@ -3,7 +3,8 @@ title: 'package.json 모듈 최신 버전으로 업데이트하는 방법'
 date: '2022-01-18'
 category: 'NPM'
 summary: 'npm-check-updates를 사용해서 프로젝트의 package.json 모듈을 최신 버전으로 업데이트하는 방법입니다.'
-thumbnail: './images/npm-check-updates.png'
+thumbnail: ''
+# thumbnail: './images/npm-check-updates.png'
 ---
 
 # 💡 들어가며

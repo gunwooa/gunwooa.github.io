@@ -1,130 +1,179 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { IGatsbyImageData, GatsbyImage } from 'gatsby-plugin-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
-const Text1 = styled.div<{ disable: boolean }>`
-  font-size: 2rem;
-  font-weight: 700;
-  text-decoration: ${({ disable }) => (disable ? 'line-through' : 'none')};
-`
-
-const Text2 = styled('div')<{ disable: boolean }>(({ disable }) => ({
-  fontSize: '2rem',
-  color: 'blue',
-  textDecoration: disable ? 'line-through' : 'none',
-}))
-
-const ThumbnailImage = styled(GatsbyImage)`
-  /* width: 100%; */
-`
-
-type Thumbnail = {
-  childImageSharp: {
-    gatsbyImageData: IGatsbyImageData
-  }
-}
-
-type Edge = {
-  node: {
-    frontmatter: {
-      category: string[]
-      date: string
-      summary: string
-      title: string
-      thumbnail: Thumbnail
-    }
-    id: string
-    fields: {
-      slug: string
-    }
-  }
-}
+import { useSiteMetadata } from 'hooks/use-site-metadata'
+import { Edges } from 'types'
+import { layoutWidth, mobileMediaQuery } from 'styles'
 
 type IndexPageProps = {
   data: {
-    allMarkdownRemark: {
-      edges: Edge[]
+    postData: {
+      edges: Edges
     }
-    file: Thumbnail
   }
 }
 
+const THUMBNAIL_WIDTH = layoutWidth / 2 - 2
+const BOX_PADDING = layoutWidth / 50
+const TITLE_FONT_SIZE = layoutWidth / 40 > 2 ? 2 : layoutWidth / 40
+const SUMMARY_FONT_SIZE = layoutWidth / 50 > 1.8 ? 1.8 : layoutWidth / 50
+const DATE_FONT_SIZE = layoutWidth / 56 > 1.4 ? 1.4 : layoutWidth / 56
+
+console.log(THUMBNAIL_WIDTH)
+
 const IndexPage: React.VFC<IndexPageProps> = ({
   data: {
-    allMarkdownRemark: { edges },
-    file: {
-      childImageSharp: { gatsbyImageData: profileImage },
-    },
+    postData: { edges: posts },
   },
 }) => {
-  const {
-    node: {
-      frontmatter: {
-        thumbnail: {
-          childImageSharp: { gatsbyImageData },
-        },
-      },
-      fields: { slug },
-    },
-  } = edges[0]
+  const { title, description } = useSiteMetadata()
+
+  console.log(title)
+  console.log(description)
+
+  console.log(posts)
 
   return (
     <div>
-      {/* <p
+      <ul
         css={css`
-          font-size: 2rem;
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+
+          ${mobileMediaQuery} {
+            flex-direction: column;
+            flex-wrap: nowrap;
+          }
         `}
       >
-        안녕
-      </p>
+        {posts.map(post => {
+          const {
+            node: {
+              id,
+              fields: { slug },
+              timeToRead,
+              frontmatter,
+            },
+          } = post
 
-      <Text1 disable={true}>나는 천제다</Text1>
-      <Text2 disable={false}>나는 천제다</Text2> 
-       <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
-      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
-      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
-      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
-      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
-      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
-      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
-      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
-      <GatsbyImage image={profileImage} alt="Post Item Image" />
-      <GatsbyImage image={profileImage} alt="Post Item Image" />
-      <GatsbyImage image={profileImage} alt="Post Item Image" />
-      <GatsbyImage image={profileImage} alt="Post Item Image" />
-      <GatsbyImage image={profileImage} alt="Post Item Image" /> */}
+          return (
+            <li
+              css={css`
+                width: ${THUMBNAIL_WIDTH}rem;
+                margin-bottom: 2rem;
+
+                border-radius: 0.8rem;
+                box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.1);
+
+                ${mobileMediaQuery} {
+                  width: 100%;
+                }
+              `}
+              key={id}
+            >
+              <div
+                css={css`
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  /* min-height: 20rem; */
+                `}
+              >
+                {frontmatter.thumbnail && (
+                  <GatsbyImage
+                    css={css`
+                      border-top-left-radius: 0.8rem;
+                      border-top-right-radius: 0.8rem;
+                      object-fit: cover;
+                    `}
+                    image={frontmatter.thumbnail.childImageSharp.gatsbyImageData}
+                    alt="photo"
+                  />
+                )}
+
+                <div
+                  css={css`
+                    /* padding: 1rem; */
+                    padding: ${BOX_PADDING}rem;
+                  `}
+                >
+                  <h1
+                    css={css`
+                      margin-bottom: 1rem;
+                      font-size: ${TITLE_FONT_SIZE}rem;
+                    `}
+                  >
+                    [{frontmatter.category}] {frontmatter.title}
+                  </h1>
+                  <p
+                    css={css`
+                      margin-bottom: 2rem;
+                      font-size: ${SUMMARY_FONT_SIZE}rem;
+                    `}
+                  >
+                    {frontmatter.summary}
+                  </p>
+                  <div
+                    css={css`
+                      display: flex;
+                      justify-content: space-between;
+                    `}
+                  >
+                    <span
+                      css={css`
+                        font-size: ${DATE_FONT_SIZE}rem;
+                      `}
+                    >
+                      {frontmatter.date}
+                    </span>
+
+                    <span
+                      css={css`
+                        font-size: ${DATE_FONT_SIZE}rem;
+                      `}
+                    >
+                      {timeToRead} min read
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </li>
+          )
+        })}
+      </ul>
     </div>
   )
 }
 
-export const indexQuery = graphql`
-  query getPostList {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }) {
+export const ql = graphql`
+  {
+    postData: allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
+      limit: 1000
+    ) {
       edges {
         node {
           id
           fields {
             slug
           }
+          timeToRead
           frontmatter {
             title
+            date(formatString: "YYYY-MM-DD")
             summary
-            date(formatString: "YYYY.MM.DD.")
             category
             thumbnail {
               childImageSharp {
-                gatsbyImageData(width: 768, height: 400)
+                gatsbyImageData(width: 700)
               }
             }
           }
         }
-      }
-    }
-    file(name: { eq: "profile" }) {
-      childImageSharp {
-        gatsbyImageData(width: 120, height: 120)
       }
     }
   }

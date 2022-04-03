@@ -3,7 +3,8 @@ title: '커스텀 Hooks 생성 후 TypeScript 타입 지정하기'
 date: '2021-09-13'
 category: 'React'
 summary: 'React 프로젝트에서 사용자의 입력값을 받는 커스텀 Hooks를 생성하고 TypeScript 타입을 지정하는 과정입니다.'
-thumbnail: './images/custom-hooks-with-typescript.png'
+thumbnail: ''
+# thumbnail: './images/custom-hooks-with-typescript.png'
 ---
 
 # 💡 들어가며
