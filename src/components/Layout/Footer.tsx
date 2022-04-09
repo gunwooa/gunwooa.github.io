@@ -16,6 +16,10 @@ const Footer: React.VFC = () => {
           align-items: center;
           justify-content: space-between;
           width: ${layoutWidth}rem;
+
+          ${mobileMediaQuery} {
+            width: 100%;
+          }
         `}
       >
         <div>
