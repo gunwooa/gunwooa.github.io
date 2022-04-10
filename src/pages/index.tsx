@@ -1,12 +1,11 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
-import { useSiteMetadata } from 'hooks/use-site-metadata'
 import { Edges } from 'types'
-import { layoutWidth, mobileMediaQuery } from 'styles'
+import { layoutWidth, mobileMediaQuery, pcMediaQuery } from 'styles'
 
 type IndexPageProps = {
   data: {
@@ -16,140 +15,117 @@ type IndexPageProps = {
   }
 }
 
-const THUMBNAIL_WIDTH = layoutWidth / 2 - 2
-const BOX_PADDING = layoutWidth / 50
-const TITLE_FONT_SIZE = layoutWidth / 40 > 2 ? 2 : layoutWidth / 40
-const SUMMARY_FONT_SIZE = layoutWidth / 50 > 1.8 ? 1.8 : layoutWidth / 50
-const DATE_FONT_SIZE = layoutWidth / 56 > 1.4 ? 1.4 : layoutWidth / 56
-
-console.log(THUMBNAIL_WIDTH)
+const THUMBNAIL_WIDTH = layoutWidth / 2 - 1
 
 const IndexPage: React.VFC<IndexPageProps> = ({
   data: {
     postData: { edges: posts },
   },
 }) => {
-  const { title, description } = useSiteMetadata()
-
-  console.log(title)
-  console.log(description)
-
-  console.log(posts)
-
   return (
-    <div>
-      <ul
-        css={css`
-          display: flex;
-          justify-content: space-between;
-          flex-wrap: wrap;
-
-          ${mobileMediaQuery} {
-            flex-direction: column;
-            flex-wrap: nowrap;
-          }
-        `}
-      >
-        {posts.map(post => {
+    <IndexBox>
+      <PostList>
+        {posts.map(({ node }) => {
           const {
-            node: {
-              id,
-              fields: { slug },
-              timeToRead,
-              frontmatter,
-            },
-          } = post
+            id,
+            fields: { slug },
+            timeToRead,
+            frontmatter,
+          } = node
 
           return (
-            <li
-              css={css`
-                width: ${THUMBNAIL_WIDTH}rem;
-                margin-bottom: 2rem;
-
-                border-radius: 0.8rem;
-                box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.1);
-
-                ${mobileMediaQuery} {
-                  width: 100%;
-                }
-              `}
-              key={id}
-            >
-              <div
-                css={css`
-                  display: flex;
-                  flex-direction: column;
-                  justify-content: center;
-                  /* min-height: 20rem; */
-                `}
-              >
-                {frontmatter.thumbnail && (
-                  <GatsbyImage
-                    css={css`
-                      border-top-left-radius: 0.8rem;
-                      border-top-right-radius: 0.8rem;
-                      object-fit: cover;
-                    `}
-                    image={frontmatter.thumbnail.childImageSharp.gatsbyImageData}
-                    alt="photo"
-                  />
-                )}
-
-                <div
+            <PostLinkItem key={id} to={slug}>
+              {frontmatter.thumbnail && (
+                <GatsbyImage
                   css={css`
-                    /* padding: 1rem; */
-                    padding: ${BOX_PADDING}rem;
+                    border-top-left-radius: 0.8rem;
+                    border-top-right-radius: 0.8rem;
+                    object-fit: cover;
                   `}
-                >
-                  <h1
-                    css={css`
-                      margin-bottom: 1rem;
-                      font-size: ${TITLE_FONT_SIZE}rem;
-                    `}
-                  >
-                    [{frontmatter.category}] {frontmatter.title}
-                  </h1>
-                  <p
-                    css={css`
-                      margin-bottom: 2rem;
-                      font-size: ${SUMMARY_FONT_SIZE}rem;
-                    `}
-                  >
-                    {frontmatter.summary}
-                  </p>
-                  <div
-                    css={css`
-                      display: flex;
-                      justify-content: space-between;
-                    `}
-                  >
-                    <span
-                      css={css`
-                        font-size: ${DATE_FONT_SIZE}rem;
-                      `}
-                    >
-                      {frontmatter.date}
-                    </span>
+                  image={frontmatter.thumbnail.childImageSharp.gatsbyImageData}
+                  alt="photo"
+                />
+              )}
 
-                    <span
-                      css={css`
-                        font-size: ${DATE_FONT_SIZE}rem;
-                      `}
-                    >
-                      {timeToRead} min read
-                    </span>
-                  </div>
+              <PostDescriptionBox>
+                <h1>
+                  [{frontmatter.category}] {frontmatter.title}
+                </h1>
+                <p>{frontmatter.summary}</p>
+                <div>
+                  <span>{frontmatter.date}</span>
+                  <span>{timeToRead} min read</span>
                 </div>
-              </div>
-            </li>
+              </PostDescriptionBox>
+            </PostLinkItem>
           )
         })}
-      </ul>
-    </div>
+      </PostList>
+    </IndexBox>
   )
 }
 
-export const ql = graphql`
+const IndexBox = styled.div``
+
+const PostList = styled.ul`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  ${mobileMediaQuery} {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+`
+
+const PostLinkItem = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: ${THUMBNAIL_WIDTH}rem;
+  margin-bottom: 2rem;
+  border-radius: 0.8rem;
+  box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.1);
+
+  ${pcMediaQuery} {
+    transition: transform 0.2s ease-in-out;
+
+    :hover {
+      transform: scale(1.05) translateY(-1rem);
+      cursor: pointer;
+    }
+  }
+
+  ${mobileMediaQuery} {
+    width: 100%;
+  }
+`
+
+const PostDescriptionBox = styled.div`
+  padding: 2rem;
+
+  > h1 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    line-height: 1.5;
+  }
+
+  > p {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+  }
+  > div span {
+    font-size: 1.3rem;
+  }
+`
+
+export const indexQuery = graphql`
   {
     postData: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
