@@ -3,12 +3,14 @@ import { graphql } from 'gatsby'
 import { css } from '@emotion/react'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
-import { markdownStyle } from 'styles/markdown'
-import { Edges } from 'types'
-import { colors, mobileMediaQuery, layoutWidth } from 'styles'
+import Layout from 'components/Layout'
 import Tags from 'components/Tags'
 import Divider from 'components/Divider'
 import CommentWidget from 'components/CommentWidget'
+import { markdownStyle } from 'styles/markdown'
+import { Edges } from 'types'
+import { colors, mobileMediaQuery, layoutWidth } from 'styles'
+import { useWindowSize } from 'hooks/useWindowSize'
 
 type PostTemplateProps = {
   data: {
@@ -18,20 +20,20 @@ type PostTemplateProps = {
   }
 }
 
-const SCREEN_WIDTH = typeof window !== 'undefined' ? window.innerWidth / 10 : 0
-
 const PostTemplate: React.VFC<PostTemplateProps> = ({
   data: {
     allMarkdownRemark: { edges },
   },
 }) => {
+  const { width: windowWidth } = useWindowSize()
+
   const {
     node: { html, timeToRead, frontmatter },
   } = edges[0]
 
   return (
-    <div>
-      <div css={css``}>
+    <Layout>
+      <div>
         <GatsbyImage
           css={css`
             max-height: 40rem;
@@ -77,10 +79,10 @@ const PostTemplate: React.VFC<PostTemplateProps> = ({
         >
           {frontmatter.date} · {timeToRead} min read
         </p>
-        <Tags tags={frontmatter.tag} size={SCREEN_WIDTH < layoutWidth ? 'small' : 'medium'} />
+        <Tags tags={frontmatter.tag} size={windowWidth < layoutWidth ? 'small' : 'medium'} />
       </div>
 
-      <Divider marginTop={SCREEN_WIDTH < layoutWidth ? 3 : 4} />
+      <Divider marginTop={windowWidth < layoutWidth ? 3 : 4} />
 
       <div
         css={css`
@@ -95,7 +97,7 @@ const PostTemplate: React.VFC<PostTemplateProps> = ({
       />
 
       <CommentWidget />
-    </div>
+    </Layout>
   )
 }
 

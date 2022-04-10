@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
+import Layout from 'components/Layout'
 import { colors, mainGradientAnimation, mobileMediaQuery, pcMediaQuery } from 'styles'
 import { Edges } from 'types'
 
@@ -24,41 +25,43 @@ const CategoriesPage: React.VFC<CategoriesPageProps> = ({
   },
 }) => {
   return (
-    <CategoriesBox>
-      <Categories>
-        {categories.map((category, index) => {
-          const { fieldValue, totalCount, edges } = category
-          return (
-            <CategoriesItemBox key={index}>
-              <CategoriesLeftItem>
-                <CategoriesLITitle>{fieldValue}</CategoriesLITitle>
-                <CategoriesLISubText>{totalCount} posts</CategoriesLISubText>
-              </CategoriesLeftItem>
+    <Layout>
+      <CategoriesBox>
+        <Categories>
+          {categories.map((category, index) => {
+            const { fieldValue, totalCount, edges } = category
+            return (
+              <CategoriesItemBox key={index}>
+                <CategoriesLeftItem>
+                  <CategoriesLITitle>{fieldValue}</CategoriesLITitle>
+                  <CategoriesLISubText>{totalCount} posts</CategoriesLISubText>
+                </CategoriesLeftItem>
 
-              <CategoriesRightItem>
-                {edges.map(edge => {
-                  const {
-                    node: { id, fields, frontmatter },
-                  } = edge
+                <CategoriesRightItem>
+                  {edges.map(edge => {
+                    const {
+                      node: { id, fields, frontmatter },
+                    } = edge
 
-                  return (
-                    <CategoriesRILinkBox key={id} to={fields.slug}>
-                      <CategoriesRILinkEmoji>🔎</CategoriesRILinkEmoji>
-                      <CategoriesRILinkTitle>
-                        {frontmatter.title}
-                        <CategoriesRILinkAnimationEmoji className="tooltip-box">
-                          👈
-                        </CategoriesRILinkAnimationEmoji>
-                      </CategoriesRILinkTitle>
-                    </CategoriesRILinkBox>
-                  )
-                })}
-              </CategoriesRightItem>
-            </CategoriesItemBox>
-          )
-        })}
-      </Categories>
-    </CategoriesBox>
+                    return (
+                      <CategoriesRILinkBox key={id} to={fields.slug}>
+                        <CategoriesRILinkEmoji>🔎</CategoriesRILinkEmoji>
+                        <CategoriesRILinkTitle>
+                          {frontmatter.title}
+                          <CategoriesRILinkAnimationEmoji className="tooltip-box">
+                            👈
+                          </CategoriesRILinkAnimationEmoji>
+                        </CategoriesRILinkTitle>
+                      </CategoriesRILinkBox>
+                    )
+                  })}
+                </CategoriesRightItem>
+              </CategoriesItemBox>
+            )
+          })}
+        </Categories>
+      </CategoriesBox>
+    </Layout>
   )
 }
 

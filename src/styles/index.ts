@@ -43,11 +43,5 @@ export const mainGradientAnimation = css`
   }
 `
 
-export const theme = {
-  colors: {
-    hoverBox: colors.hoverBox,
-  },
-}
-
 export const pcMediaQuery = `@media all and (min-width: 769px)`
 export const mobileMediaQuery = `@media all and (min-width: 280px) and (max-width: 768px)`

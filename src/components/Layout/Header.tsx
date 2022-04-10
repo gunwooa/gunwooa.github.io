@@ -7,6 +7,7 @@ import { HiViewGrid } from 'react-icons/hi'
 import { GiOverkill } from 'react-icons/gi'
 
 import {
+  colors,
   pcMediaQuery,
   mobileMediaQuery,
   layoutWidth,
@@ -85,7 +86,7 @@ const HomeLink = styled(Link)`
     padding: 0.6rem;
     border-radius: 0.6rem;
     :hover {
-      background-color: ${props => props.theme.colors.hoverBox};
+      background-color: ${colors.hoverBox};
     }
   }
 
@@ -100,7 +101,7 @@ const MenuLink = styled(Link)`
     padding: 0.6rem;
     border-radius: 50%;
     :hover {
-      background-color: ${props => props.theme.colors.hoverBox};
+      background-color: ${colors.hoverBox};
     }
   }
 `

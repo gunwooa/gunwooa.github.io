@@ -2,9 +2,10 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from '@emotion/styled'
 
-import { markdownStyle } from 'styles/markdown'
+import Layout from 'components/Layout'
 import Divider from 'components/Divider'
 import ProfileBox from 'components/ProfileBox'
+import { markdownStyle } from 'styles/markdown'
 
 type AboutPageProps = {
   data: {
@@ -16,11 +17,11 @@ type AboutPageProps = {
 
 const AboutPage: React.VFC<AboutPageProps> = ({ data: { resume } }) => {
   return (
-    <>
+    <Layout>
       <ProfileBox />
       <Divider marginBottom={4} />
       <ResumeRenderer dangerouslySetInnerHTML={{ __html: resume.childrenMarkdownRemark[0].html }} />
-    </>
+    </Layout>
   )
 }
 

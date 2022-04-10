@@ -4,6 +4,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
+import Layout from 'components/Layout'
 import ProfileBox from 'components/ProfileBox'
 import Divider from 'components/Divider'
 import Tags from 'components/Tags'
@@ -26,71 +27,73 @@ const IndexPage: React.VFC<IndexPageProps> = ({
   },
 }) => {
   return (
-    <IndexBox>
-      <ProfileBox />
-      <Divider marginBottom={4} />
-      <PostList>
-        {posts.map(({ node }) => {
-          const {
-            id,
-            fields: { slug },
-            timeToRead,
-            frontmatter,
-          } = node
+    <Layout>
+      <IndexBox>
+        <ProfileBox />
+        <Divider marginBottom={4} />
+        <PostList>
+          {posts.map(({ node }) => {
+            const {
+              id,
+              fields: { slug },
+              timeToRead,
+              frontmatter,
+            } = node
 
-          return (
-            <PostLinkItem key={id} to={slug}>
-              <GatsbyImage
-                css={css`
-                  max-height: 18rem;
-                  border-top-left-radius: 0.8rem;
-                  border-top-right-radius: 0.8rem;
-                `}
-                image={frontmatter.thumbnail.childImageSharp.gatsbyImageData}
-                alt="photo"
-                objectFit="cover"
-              />
-
-              <PostDescriptionBox>
-                <div
+            return (
+              <PostLinkItem key={id} to={slug}>
+                <GatsbyImage
                   css={css`
-                    > h1 {
-                      font-size: 1.8rem;
-                      line-height: 1.5;
-                    }
-                    > p {
-                      margin: 2rem 0;
-                      font-size: 1.5rem;
-                      line-height: 1.5;
-                    }
+                    max-height: 18rem;
+                    border-top-left-radius: 0.8rem;
+                    border-top-right-radius: 0.8rem;
                   `}
-                >
-                  <h1>
-                    [{frontmatter.category}] {frontmatter.title}
-                  </h1>
-                  <p>{frontmatter.summary}</p>
-                  <Tags tags={frontmatter.tag} />
-                </div>
-                <div
-                  css={css`
-                    display: flex;
-                    justify-content: space-between;
-                    margin-top: 2rem;
+                  image={frontmatter.thumbnail.childImageSharp.gatsbyImageData}
+                  alt="photo"
+                  objectFit="cover"
+                />
 
-                    > span {
-                      font-size: 1.3rem;
-                    }
-                  `}
-                >
-                  <span>{frontmatter.date}</span>
-                  <span>{timeToRead} min read</span>
-                </div>
-              </PostDescriptionBox>
-            </PostLinkItem>
-          )
-        })}
-      </PostList>
-    </IndexBox>
+                <PostDescriptionBox>
+                  <div
+                    css={css`
+                      > h1 {
+                        font-size: 1.8rem;
+                        line-height: 1.5;
+                      }
+                      > p {
+                        margin: 2rem 0;
+                        font-size: 1.5rem;
+                        line-height: 1.5;
+                      }
+                    `}
+                  >
+                    <h1>
+                      [{frontmatter.category}] {frontmatter.title}
+                    </h1>
+                    <p>{frontmatter.summary}</p>
+                    <Tags tags={frontmatter.tag} />
+                  </div>
+                  <div
+                    css={css`
+                      display: flex;
+                      justify-content: space-between;
+                      margin-top: 2rem;
+
+                      > span {
+                        font-size: 1.3rem;
+                      }
+                    `}
+                  >
+                    <span>{frontmatter.date}</span>
+                    <span>{timeToRead} min read</span>
+                  </div>
+                </PostDescriptionBox>
+              </PostLinkItem>
+            )
+          })}
+        </PostList>
+      </IndexBox>
+    </Layout>
   )
 }
 
