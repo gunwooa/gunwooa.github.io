@@ -1,129 +1,101 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { css } from '@emotion/react'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
-type Edge = {
-  node: {
-    html: string
-  }
-}
+import { markdownStyle } from 'styles/markdown'
+import { Edges } from 'types'
+import { colors, mobileMediaQuery, layoutWidth } from 'styles'
+import Tags from 'components/Tags'
+import Divider from 'components/Divider'
+import CommentWidget from 'components/CommentWidget'
 
 type PostTemplateProps = {
   data: {
     allMarkdownRemark: {
-      edges: Edge[]
+      edges: Edges
     }
   }
 }
 
-const PostTemplate: React.FC<PostTemplateProps> = function ({
+const SCREEN_WIDTH = typeof window !== 'undefined' ? window.innerWidth / 10 : 0
+
+const PostTemplate: React.VFC<PostTemplateProps> = ({
   data: {
     allMarkdownRemark: { edges },
   },
-}) {
+}) => {
   const {
-    node: { html },
+    node: { html, timeToRead, frontmatter },
   } = edges[0]
 
   return (
-    <div
-      css={css`
-        // Renderer Style
-        display: flex;
-        flex-direction: column;
-        width: 768px;
-        margin: 0 auto;
-        padding: 100px 0;
-        word-break: break-all;
+    <div>
+      <div css={css``}>
+        <GatsbyImage
+          css={css`
+            max-height: 40rem;
+            border-radius: 1.2rem;
 
-        // Markdown Style
-        line-height: 1.8;
-        font-weight: 400;
+            ${mobileMediaQuery} {
+              max-height: 20rem;
+            }
+          `}
+          image={frontmatter.thumbnail.childImageSharp.gatsbyImageData}
+          alt="photo"
+          objectFit="cover"
+        />
 
-        // Apply Padding Attribute to All Elements
-        p {
-          padding: 3px 0;
-          font-size: 1.6rem;
-        }
+        <h1
+          css={css`
+            margin-top: 4rem;
+            font-size: 4.6rem;
+            line-height: 1.3;
+            color: ${colors.gray800};
 
-        // Adjust Heading Element Style
-        h1,
-        h2,
-        h3 {
-          font-weight: 800;
-          margin-bottom: 30px;
-        }
+            ${mobileMediaQuery} {
+              margin-top: 3rem;
+              font-size: 3rem;
+            }
+          `}
+        >
+          [{frontmatter.category}] {frontmatter.title}
+        </h1>
 
-        * + h1,
-        * + h2,
-        * + h3 {
-          margin-top: 80px;
-        }
+        <p
+          css={css`
+            display: flex;
+            margin: 2rem 0;
+            font-size: 1.6rem;
+            color: ${colors.gray700};
 
-        hr + h1,
-        hr + h2,
-        hr + h3 {
-          margin-top: 0;
-        }
+            ${mobileMediaQuery} {
+              margin: 1.6rem 0;
+              font-size: 1.4rem;
+            }
+          `}
+        >
+          {frontmatter.date} · {timeToRead} min read
+        </p>
+        <Tags tags={frontmatter.tag} size={SCREEN_WIDTH < layoutWidth ? 'small' : 'medium'} />
+      </div>
 
-        h1 {
-          font-size: 3rem;
-        }
+      <Divider marginTop={SCREEN_WIDTH < layoutWidth ? 3 : 4} />
 
-        h2 {
-          font-size: 2.5rem;
-        }
+      <div
+        css={css`
+          ${markdownStyle};
+          margin-bottom: 8rem;
 
-        h3 {
-          font-size: 2rem;
-        }
-
-        // Adjust Quotation Element Style
-        blockquote {
-          margin: 30px 0;
-          padding: 5px 15px;
-          border-left: 2px solid #000000;
-          font-weight: 800;
-        }
-
-        // Adjust List Element Style
-        ol,
-        ul {
-          margin-left: 20px;
-          padding: 30px 0;
-        }
-
-        // Adjust Horizontal Rule style
-        hr {
-          border: 1px solid #000000;
-          margin: 100px 0;
-        }
-
-        // Adjust Link Element Style
-        a {
-          color: #4263eb;
-          text-decoration: underline;
-        }
-
-        // Adjust Code Style
-        pre[class*='language-'] {
-          margin: 30px 0;
-          padding: 15px;
-          font-size: 1.5rem;
-
-          ::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 3px;
+          ${mobileMediaQuery} {
+            margin-bottom: 5rem;
           }
-        }
+        `}
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
 
-        code[class*='language-'],
-        pre[class*='language-'] {
-          tab-size: 2;
-        }
-      `}
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
+      <CommentWidget />
+    </div>
   )
 }
 
@@ -135,14 +107,16 @@ export const queryMarkdownDataBySlug = graphql`
       edges {
         node {
           html
+          timeToRead
           frontmatter {
+            date(formatString: "YYYY.MM.DD")
+            category
             title
             summary
-            date(formatString: "YYYY.MM.DD.")
-            category
+            tag
             thumbnail {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData(width: 768)
               }
             }
           }

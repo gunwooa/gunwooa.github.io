@@ -1,6 +1,5 @@
 import { css } from '@emotion/react'
 
-// 화면 절반의 넓이
 export const layoutWidth = 76.8
 export const headerFooterHeight = {
   pc: 6.5,

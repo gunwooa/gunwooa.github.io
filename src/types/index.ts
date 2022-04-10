@@ -11,7 +11,8 @@ export type Frontmatter = {
   date: string
   category: string
   summary: string
-  thumbnail: Thumbnail | null
+  tag: string[]
+  thumbnail: Thumbnail
 }
 
 export type Edges = {
@@ -20,6 +21,7 @@ export type Edges = {
     fields: {
       slug: string
     }
+    html: string
     timeToRead: number
     frontmatter: Frontmatter
   }

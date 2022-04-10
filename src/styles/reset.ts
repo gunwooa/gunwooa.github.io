@@ -1,6 +1,8 @@
 import { css } from '@emotion/react'
 
 export const resetStyles = css`
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
   html,
   body,
   div,
@@ -86,6 +88,7 @@ export const resetStyles = css`
     padding: 0;
     border: 0;
     font-size: 62.5%;
+    font-family: 'Noto Sans KR', sans-serif;
     vertical-align: baseline;
   }
   article,

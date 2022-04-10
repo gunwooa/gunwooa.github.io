@@ -4,6 +4,9 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
+import ProfileBox from 'components/ProfileBox'
+import Divider from 'components/Divider'
+import Tags from 'components/Tags'
 import { Edges } from 'types'
 import { layoutWidth, mobileMediaQuery, pcMediaQuery } from 'styles'
 
@@ -24,6 +27,8 @@ const IndexPage: React.VFC<IndexPageProps> = ({
 }) => {
   return (
     <IndexBox>
+      <ProfileBox />
+      <Divider marginBottom={4} />
       <PostList>
         {posts.map(({ node }) => {
           const {
@@ -35,24 +40,48 @@ const IndexPage: React.VFC<IndexPageProps> = ({
 
           return (
             <PostLinkItem key={id} to={slug}>
-              {frontmatter.thumbnail && (
-                <GatsbyImage
-                  css={css`
-                    border-top-left-radius: 0.8rem;
-                    border-top-right-radius: 0.8rem;
-                    object-fit: cover;
-                  `}
-                  image={frontmatter.thumbnail.childImageSharp.gatsbyImageData}
-                  alt="photo"
-                />
-              )}
+              <GatsbyImage
+                css={css`
+                  max-height: 18rem;
+                  border-top-left-radius: 0.8rem;
+                  border-top-right-radius: 0.8rem;
+                `}
+                image={frontmatter.thumbnail.childImageSharp.gatsbyImageData}
+                alt="photo"
+                objectFit="cover"
+              />
 
               <PostDescriptionBox>
-                <h1>
-                  [{frontmatter.category}] {frontmatter.title}
-                </h1>
-                <p>{frontmatter.summary}</p>
-                <div>
+                <div
+                  css={css`
+                    > h1 {
+                      font-size: 1.8rem;
+                      line-height: 1.5;
+                    }
+                    > p {
+                      margin: 2rem 0;
+                      font-size: 1.5rem;
+                      line-height: 1.5;
+                    }
+                  `}
+                >
+                  <h1>
+                    [{frontmatter.category}] {frontmatter.title}
+                  </h1>
+                  <p>{frontmatter.summary}</p>
+                  <Tags tags={frontmatter.tag} />
+                </div>
+                <div
+                  css={css`
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 2rem;
+
+                    > span {
+                      font-size: 1.3rem;
+                    }
+                  `}
+                >
                   <span>{frontmatter.date}</span>
                   <span>{timeToRead} min read</span>
                 </div>
@@ -81,7 +110,7 @@ const PostList = styled.ul`
 const PostLinkItem = styled(Link)`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+
   width: ${THUMBNAIL_WIDTH}rem;
   margin-bottom: 2rem;
   border-radius: 0.8rem;
@@ -102,34 +131,20 @@ const PostLinkItem = styled(Link)`
 `
 
 const PostDescriptionBox = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 2rem;
-
-  > h1 {
-    margin-bottom: 1rem;
-    font-size: 1.8rem;
-    line-height: 1.5;
-  }
-
-  > p {
-    margin-bottom: 2rem;
-    font-size: 1.5rem;
-    line-height: 1.5;
-  }
-
-  > div {
-    display: flex;
-    justify-content: space-between;
-  }
-  > div span {
-    font-size: 1.3rem;
-  }
 `
 
+// skip: 1 -> static/resume.md
 export const indexQuery = graphql`
   {
     postData: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
       limit: 1000
+      skip: 1
     ) {
       edges {
         node {
@@ -139,13 +154,14 @@ export const indexQuery = graphql`
           }
           timeToRead
           frontmatter {
-            title
             date(formatString: "YYYY-MM-DD")
-            summary
             category
+            title
+            summary
+            tag
             thumbnail {
               childImageSharp {
-                gatsbyImageData(width: 700)
+                gatsbyImageData(width: 768)
               }
             }
           }

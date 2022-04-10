@@ -51,12 +51,6 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              classPrefix: `language-`,
-            },
-          },
-          {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 768,
@@ -73,6 +67,14 @@ module.exports = {
             options: {
               target: `_blank`,
               rel: `nofollow`,
+            },
+          },
+          {
+            resolve: `gatsby-remark-highlight-code`,
+            options: {
+              terminal: 'carbon',
+              theme: 'seti',
+              lineNumbers: true,
             },
           },
         ],
