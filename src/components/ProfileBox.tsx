@@ -85,7 +85,7 @@ const ProfileBox: React.VFC = () => {
               }
             `}
           >
-            장건우 (GW D)
+            장건우 (GW D)🚗
           </h3>
           <p
             css={css`
