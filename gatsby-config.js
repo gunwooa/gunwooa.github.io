@@ -1,9 +1,10 @@
 module.exports = {
   siteMetadata: {
     title: `GWDevlog`,
-    description: `프론트엔드 개발자의 지식을 공유합니다.`,
+    description: `웹 프론트엔드 개발 지식을 기록하고 공유합니다.`,
     author: `장건우`,
-    siteUrl: 'https://gunwooa.github.io/',
+    email: `gunwooooa@gmail.com`,
+    siteUrl: `https://gunwooa.github.io/`,
   },
   plugins: [
     {
@@ -15,6 +16,13 @@ module.exports = {
     },
     `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://gunwooa.github.io/`,
+        stripQueryString: true,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

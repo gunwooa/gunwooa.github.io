@@ -6,6 +6,7 @@ import Layout from 'components/Layout'
 import Divider from 'components/Divider'
 import ProfileBox from 'components/ProfileBox'
 import { markdownStyle } from 'styles/markdown'
+import SEO from 'components/Layout/SEO'
 
 type AboutPageProps = {
   data: {
@@ -18,6 +19,7 @@ type AboutPageProps = {
 const AboutPage: React.VFC<AboutPageProps> = ({ data: { resume } }) => {
   return (
     <Layout>
+      <SEO title="About | GWDevlog" />
       <ProfileBox />
       <Divider marginBottom={4} />
       <ResumeRenderer dangerouslySetInnerHTML={{ __html: resume.childrenMarkdownRemark[0].html }} />

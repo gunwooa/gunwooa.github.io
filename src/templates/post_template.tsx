@@ -11,6 +11,7 @@ import { markdownStyle } from 'styles/markdown'
 import { Edges } from 'types'
 import { colors, mobileMediaQuery, layoutWidth } from 'styles'
 import { useWindowSize } from 'hooks/useWindowSize'
+import SEO from 'components/Layout/SEO'
 
 type PostTemplateProps = {
   data: {
@@ -33,6 +34,11 @@ const PostTemplate: React.VFC<PostTemplateProps> = ({
 
   return (
     <Layout>
+      <SEO
+        title={frontmatter.title}
+        description={frontmatter.summary}
+        thumbnail={frontmatter.thumbnail.publicURL}
+      />
       <div>
         <GatsbyImage
           css={css`
@@ -120,6 +126,7 @@ export const queryMarkdownDataBySlug = graphql`
               childImageSharp {
                 gatsbyImageData(width: 768)
               }
+              publicURL
             }
           }
         }

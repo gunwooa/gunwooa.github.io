@@ -4,10 +4,12 @@ import { Link } from 'gatsby'
 
 import Layout from 'components/Layout'
 import { mobileMediaQuery } from 'styles'
+import SEO from 'components/Layout/SEO'
 
 const NotFoundPage: React.VFC = () => {
   return (
     <Layout>
+      <SEO title="404 | GWDevlog" />
       <NotFoundPageWrapper>
         <NotFoundText>404</NotFoundText>
         <NotFoundDescription>

@@ -6,6 +6,7 @@ import styled from '@emotion/styled'
 import Layout from 'components/Layout'
 import { colors, mainGradientAnimation, mobileMediaQuery, pcMediaQuery } from 'styles'
 import { Edges } from 'types'
+import SEO from 'components/Layout/SEO'
 
 type CategoriesPageProps = {
   data: {
@@ -26,6 +27,7 @@ const CategoriesPage: React.VFC<CategoriesPageProps> = ({
 }) => {
   return (
     <Layout>
+      <SEO title="Category | GWDevlog" />
       <CategoriesBox>
         <Categories>
           {categories.map((category, index) => {

@@ -2562,6 +2562,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-helmet@^6.1.5":
+  version "6.1.5"
+  resolved "https://registry.yarnpkg.com/@types/react-helmet/-/react-helmet-6.1.5.tgz#35f89a6b1646ee2bc342a33a9a6c8777933f9083"
+  integrity sha512-/ICuy7OHZxR0YCAZLNg9r7I9aijWUWvxaPR6uTuyxe8tAj5RL4Sw1+R6NhXUtOsarkGYPmaHdBDvuXh2DIN/uA==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*":
   version "17.0.40"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.40.tgz#dc010cee6254d5239a138083f3799a16638e6bad"
@@ -5980,6 +5987,13 @@ gatsby-parcel-config@^0.1.0:
     "@parcel/transformer-json" "^2.3.1"
     "@parcel/transformer-raw" "^2.3.1"
     "@parcel/transformer-react-refresh-wrap" "^2.3.1"
+
+gatsby-plugin-canonical-urls@^4.11.0:
+  version "4.11.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-canonical-urls/-/gatsby-plugin-canonical-urls-4.11.0.tgz#dbca5375d0198738958ece378cfddd58a2a30ab5"
+  integrity sha512-3UjK1J2lTpg0U5Hcqp7Dr8oZoDZVkXOwYPKdfiQ03JnU86jpqcF6mkNt91krlhoFq6mKIhQBwjSySTiJfGiVZw==
+  dependencies:
+    "@babel/runtime" "^7.15.4"
 
 gatsby-plugin-emotion@^7.10.0:
   version "7.10.0"
