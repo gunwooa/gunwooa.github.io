@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-categories-tsx",
     "path": "/categories/",
-    "result": {"data":{"categoryData":{"group":[{"fieldValue":"JavaScript","totalCount":1,"edges":[{"node":{"id":"c6d218d7-d22e-5170-af7c-27a5a399e069","fields":{"slug":"/javascript/short-circuit evaluation/"},"frontmatter":{"title":"단축 평가"}}}]}]}},"pageContext":{}},
+    "result": {"data":{"categoryData":{"group":[{"fieldValue":"Gatsby","totalCount":3,"edges":[{"node":{"id":"d5561044-85ec-5026-a893-cdbf6f5a3f1b","fields":{"slug":"/gatsby/what-is-gatsby/"},"frontmatter":{"title":"[Gatsby] Gatsby는 처음이라 :: 개념부터 프로젝트 시작까지"}}},{"node":{"id":"5d0f78d1-c94c-572d-be97-985ed5d0a2d3","fields":{"slug":"/gatsby/google-search-console/"},"frontmatter":{"title":"[Gatsby] Google 검색 결과에 내 블로그가 포함되기 위한 과정"}}},{"node":{"id":"5976a5e5-e8af-5584-a569-de482948a97c","fields":{"slug":"/gatsby/configuration-typescript/"},"frontmatter":{"title":"[Gatsby] Gatsby 프로젝트에서 TypeScript를 사용하는 방법"}}}]},{"fieldValue":"JavaScript","totalCount":1,"edges":[{"node":{"id":"c6d218d7-d22e-5170-af7c-27a5a399e069","fields":{"slug":"/javascript/short-circuit evaluation/"},"frontmatter":{"title":"단축 평가"}}}]}]}},"pageContext":{}},
     "staticQueryHashes": []}
