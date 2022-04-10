@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "gunwooa.github.io",
+  "version": "1.0.0",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "gunwooa.github.io",
+  "author": "GWD",
   "dependencies": {
     "@deckdeckgo/highlight-code": "^4.3.0",
     "@emotion/react": "^11.8.2",
@@ -47,7 +47,6 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "gatsby develop",
     "serve": "gatsby serve",
