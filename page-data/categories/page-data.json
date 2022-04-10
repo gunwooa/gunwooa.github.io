@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-categories-tsx",
+    "path": "/categories/",
+    "result": {"data":{"categoryData":{"group":[{"fieldValue":"JavaScript","totalCount":1,"edges":[{"node":{"id":"c6d218d7-d22e-5170-af7c-27a5a399e069","fields":{"slug":"/javascript/short-circuit evaluation/"},"frontmatter":{"title":"단축 평가"}}}]}]}},"pageContext":{}},
+    "staticQueryHashes": []}

@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-about-tsx",
+    "path": "/about/",
+    "result": {"data":{"resume":{"childrenMarkdownRemark":[{"html":"<deckgo-highlight-code language=\"javascript\" terminal=\"carbon\" theme=\"seti\" line-numbers=\"true\"  >\n          <code slot=\"code\">const PROFILE = {\n    name: &#39;장건우&#39;,\n    career: &#39;프론트엔드 3년차&#39;,\n    birthDate: &#39;1993-11-04&#39;,\n    email: &#39;gunwooooa@gmail.com&#39;,\n    skills: [&#39;ES6&#39;, &#39;TypeScript&#39;, &#39;React&#39;, &#39;NextJS&#39;, &#39;ReactNative&#39;, ...]\n}</code>\n        </deckgo-highlight-code>\n<br />\n<br />\n<p>안녕하세요. 3년차 프론트엔드 개발자 <strong>장건우</strong>입니다.</p>\n<br />\n<p>새로운 기술을 두려워하지 않는 트렌디한 개발자가 되기 위해 노력하고 있습니다.</p>"}]}},"pageContext":{}},
+    "staticQueryHashes": ["2851251578"]}
