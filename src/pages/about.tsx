@@ -19,7 +19,7 @@ type AboutPageProps = {
 const AboutPage: React.VFC<AboutPageProps> = ({ data: { resume } }) => {
   return (
     <Layout>
-      <SEO title="About | GWDevlog" />
+      <SEO title="About | GW Devlog" />
       <ProfileBox />
       <Divider marginBottom={4} />
       <ResumeRenderer dangerouslySetInnerHTML={{ __html: resume.childrenMarkdownRemark[0].html }} />

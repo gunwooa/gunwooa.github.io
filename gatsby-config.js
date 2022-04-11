@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `GWDevlog`,
+    title: `GW Devlog`,
     description: `웹 프론트엔드 개발 지식을 기록하고 공유합니다.`,
     author: `장건우`,
     email: `gunwooooa@gmail.com`,

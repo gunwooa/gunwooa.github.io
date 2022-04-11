@@ -9,7 +9,7 @@ import { mobileMediaQuery } from 'styles'
 const NotFoundPage: React.VFC = () => {
   return (
     <Layout>
-      <SEO title="404 | GWDevlog" />
+      <SEO title="404 | GW Devlog" />
       <NotFoundPageWrapper>
         <NotFoundText>404</NotFoundText>
         <NotFoundDescription>

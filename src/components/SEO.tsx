@@ -58,7 +58,7 @@ const SEO: React.VFC<SEOProps> = ({ title, description, thumbnail }) => {
         {
           name: 'keywords',
           content:
-            'HTML, CSS, JavaScript, TypeScript, React, Next.JS, Gatsby, GitHub, Frontend, ReactNative, ES6',
+            'Frontend, HTML, CSS, JavaScript, ES6, TypeScript, React, Next.JS, GitHub, ReactNative, Gatsby, Development, AWS',
         },
         {
           name: 'author',

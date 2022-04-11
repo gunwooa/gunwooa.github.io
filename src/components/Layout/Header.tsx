@@ -32,7 +32,7 @@ const Header: React.VFC = () => {
       >
         <HomeLink to="/">
           <IoLogoBuffer css={homeIcon} />
-          GWDevlog
+          GW Devlog
         </HomeLink>
 
         <div

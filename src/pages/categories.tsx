@@ -27,7 +27,7 @@ const CategoriesPage: React.VFC<CategoriesPageProps> = ({
 }) => {
   return (
     <Layout>
-      <SEO title="Category | GWDevlog" />
+      <SEO title="Category | GW Devlog" />
       <CategoriesBox>
         <Categories>
           {categories.map((category, index) => {
