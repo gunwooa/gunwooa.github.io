@@ -7,7 +7,7 @@ module.exports = {
     siteUrl: `https://gunwooa.github.io/`,
   },
   plugins: [
-    'gatsby-plugin-sitemap',
+    'gatsby-plugin-advanced-sitemap',
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
