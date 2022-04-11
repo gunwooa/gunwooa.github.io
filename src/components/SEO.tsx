@@ -35,10 +35,10 @@ const SEO: React.VFC<SEOProps> = ({ title, description, thumbnail }) => {
     <Helmet
       title={SEOTitle}
       meta={[
-        // {
-        //   name: 'google-site-verification',
-        //   content: 'c1xO-enkE_JmnbHAdhBslQ12uqZpBfCDfSgZ8yIoL0U',
-        // },
+        {
+          name: 'google-site-verification',
+          content: 'IoIuxRwQKonoW-xGNha5h4R1sLTXfbT9lEQyPhcUOvc',
+        },
         // {
         //   name: 'naver-site-verification',
         //   content: '2cc40621eb11418be5791db057b14a2d2cc2800c',
