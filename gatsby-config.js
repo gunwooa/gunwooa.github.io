@@ -50,6 +50,12 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: 'src/logo.png',
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
