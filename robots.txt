@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://gunwooa.github.io/sitemap/sitemap-index.xml
+Sitemap: https://gunwooa.github.io/sitemap.xml
 Host: https://gunwooa.github.io
