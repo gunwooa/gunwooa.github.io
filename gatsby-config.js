@@ -11,6 +11,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
+        host: 'https://gunwooa.github.io',
+        sitemap: 'https://gunwooa.github.io/sitemap.xml',
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
