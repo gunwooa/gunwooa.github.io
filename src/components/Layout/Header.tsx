@@ -45,11 +45,12 @@ const Header: React.VFC = () => {
               margin-right: 1rem;
             `}
             to="/categories"
+            aria-label="Category | GW Devlog"
           >
             <HiViewGrid css={styledIcon} />
           </MenuLink>
 
-          <MenuLink to="/about">
+          <MenuLink to="/about" aria-label="About | GW Devlog">
             <GiOverkill css={styledIcon} />
           </MenuLink>
         </div>
