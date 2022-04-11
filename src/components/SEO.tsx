@@ -39,10 +39,10 @@ const SEO: React.VFC<SEOProps> = ({ title, description, thumbnail }) => {
           name: 'google-site-verification',
           content: 'IoIuxRwQKonoW-xGNha5h4R1sLTXfbT9lEQyPhcUOvc',
         },
-        // {
-        //   name: 'naver-site-verification',
-        //   content: '2cc40621eb11418be5791db057b14a2d2cc2800c',
-        // },
+        {
+          name: 'naver-site-verification',
+          content: '43f272ca8d2013b5b4612decaaa99787b67c9d76',
+        },
         {
           name: 'viewport',
           content: 'width=device-width, initial-scale=1.0',
