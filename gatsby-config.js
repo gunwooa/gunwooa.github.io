@@ -7,6 +7,7 @@ module.exports = {
     siteUrl: `https://gunwooa.github.io/`,
   },
   plugins: [
+    'gatsby-plugin-sitemap',
     {
       resolve: `gatsby-plugin-typescript`,
       options: {
