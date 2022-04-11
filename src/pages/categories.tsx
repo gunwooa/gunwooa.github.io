@@ -3,10 +3,10 @@ import { graphql, Link } from 'gatsby'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
+import SEO from 'components/SEO'
 import Layout from 'components/Layout'
 import { colors, mainGradientAnimation, mobileMediaQuery, pcMediaQuery } from 'styles'
 import { Edges } from 'types'
-import SEO from 'components/Layout/SEO'
 
 type CategoriesPageProps = {
   data: {

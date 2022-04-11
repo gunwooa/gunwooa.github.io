@@ -72,7 +72,7 @@ const ProfileBox: React.VFC = () => {
           }
         `}
       >
-        <div css={css``}>
+        <div>
           <h3
             css={css`
               font-size: 2.2rem;
@@ -100,7 +100,7 @@ const ProfileBox: React.VFC = () => {
               }
             `}
           >
-            풀스택이 되고싶은 프론트엔드 개발자입니다. 💻
+            풀스택 개발을 향해 전진하는 프론트엔드 개발자입니다. 💻
           </p>
         </div>
 

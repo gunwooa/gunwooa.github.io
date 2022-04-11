@@ -4,7 +4,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
-import SEO from 'components/Layout/SEO'
+import SEO from 'components/SEO'
 import Layout from 'components/Layout'
 import ProfileBox from 'components/ProfileBox'
 import Divider from 'components/Divider'
@@ -41,8 +41,6 @@ const IndexPage: React.VFC<IndexPageProps> = ({
               timeToRead,
               frontmatter,
             } = node
-
-            console.log(frontmatter)
 
             return (
               <PostLinkItem key={id} to={slug}>

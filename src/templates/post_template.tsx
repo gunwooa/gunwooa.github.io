@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import { css } from '@emotion/react'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
+import SEO from 'components/SEO'
 import Layout from 'components/Layout'
 import Tags from 'components/Tags'
 import Divider from 'components/Divider'
@@ -11,7 +12,6 @@ import { markdownStyle } from 'styles/markdown'
 import { Edges } from 'types'
 import { colors, mobileMediaQuery, layoutWidth } from 'styles'
 import { useWindowSize } from 'hooks/useWindowSize'
-import SEO from 'components/Layout/SEO'
 
 type PostTemplateProps = {
   data: {
@@ -27,16 +27,16 @@ const PostTemplate: React.VFC<PostTemplateProps> = ({
   },
 }) => {
   const { width: windowWidth } = useWindowSize()
-
   const {
     node: { html, timeToRead, frontmatter },
   } = edges[0]
+  const tags = frontmatter.tag.map(tag => `#${tag}`).join(' ')
 
   return (
     <Layout>
       <SEO
-        title={frontmatter.title}
-        description={frontmatter.summary}
+        title={`${frontmatter.category} | ${frontmatter.title}`}
+        description={`${frontmatter.summary} ${tags}`}
         thumbnail={frontmatter.thumbnail.publicURL}
       />
       <div>

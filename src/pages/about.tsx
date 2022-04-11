@@ -2,11 +2,11 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from '@emotion/styled'
 
+import SEO from 'components/SEO'
 import Layout from 'components/Layout'
 import Divider from 'components/Divider'
 import ProfileBox from 'components/ProfileBox'
 import { markdownStyle } from 'styles/markdown'
-import SEO from 'components/Layout/SEO'
 
 type AboutPageProps = {
   data: {

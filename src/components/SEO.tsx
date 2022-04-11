@@ -13,14 +13,14 @@ type SEOProps = {
 
 const SEO: React.VFC<SEOProps> = ({ title, description, thumbnail }) => {
   const siteMetadata = useSiteMetadata()
-  const { file: logo } = useStaticQuery<{
+  const { file: cover } = useStaticQuery<{
     file: {
       publicURL: string
     }
   }>(
     graphql`
       {
-        file(name: { eq: "logo" }) {
+        file(name: { eq: "cover" }) {
           publicURL
         }
       }
@@ -29,7 +29,7 @@ const SEO: React.VFC<SEOProps> = ({ title, description, thumbnail }) => {
 
   const SEOTitle: string = title || siteMetadata.title
   const SEODescription: string = description || siteMetadata.description
-  const SEOImg: string = thumbnail || logo.publicURL
+  const SEOImg: string = thumbnail || cover.publicURL
 
   return (
     <Helmet
