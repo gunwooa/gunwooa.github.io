@@ -1,3 +1,5 @@
-import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader'
+import customWrapRootElement from './src/app/wrapRootElement'
+import customWrapPageElement from './src/app/wrapPageElement'
 
-deckDeckGoHighlightElement()
+export const wrapRootElement = customWrapRootElement
+export const wrapPageElement = customWrapPageElement

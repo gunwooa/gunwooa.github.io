@@ -4,7 +4,6 @@ import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
 import SEO from 'components/SEO'
-import Layout from 'components/Layout'
 import { colors, mainGradientAnimation, mobileMediaQuery, pcMediaQuery } from 'styles'
 import { Edges } from 'types'
 
@@ -26,7 +25,7 @@ const CategoriesPage: React.VFC<CategoriesPageProps> = ({
   },
 }) => {
   return (
-    <Layout>
+    <>
       <SEO title="Category | GW Devlog" />
       <CategoriesBox>
         <Categories>
@@ -63,7 +62,7 @@ const CategoriesPage: React.VFC<CategoriesPageProps> = ({
           })}
         </Categories>
       </CategoriesBox>
-    </Layout>
+    </>
   )
 }
 

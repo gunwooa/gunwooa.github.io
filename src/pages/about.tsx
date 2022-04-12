@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import styled from '@emotion/styled'
 
 import SEO from 'components/SEO'
-import Layout from 'components/Layout'
 import Divider from 'components/Divider'
 import ProfileBox from 'components/ProfileBox'
 import { markdownStyle } from 'styles/markdown'
@@ -18,12 +17,12 @@ type AboutPageProps = {
 
 const AboutPage: React.VFC<AboutPageProps> = ({ data: { resume } }) => {
   return (
-    <Layout>
+    <>
       <SEO title="About | GW Devlog" />
       <ProfileBox />
       <Divider marginBottom={4} />
       <ResumeRenderer dangerouslySetInnerHTML={{ __html: resume.childrenMarkdownRemark[0].html }} />
-    </Layout>
+    </>
   )
 }
 

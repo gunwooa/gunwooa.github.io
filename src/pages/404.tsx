@@ -3,12 +3,11 @@ import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
 import SEO from 'components/SEO'
-import Layout from 'components/Layout'
 import { mobileMediaQuery } from 'styles'
 
 const NotFoundPage: React.VFC = () => {
   return (
-    <Layout>
+    <>
       <SEO title="404 | GW Devlog" />
       <NotFoundPageWrapper>
         <NotFoundText>404</NotFoundText>
@@ -18,7 +17,7 @@ const NotFoundPage: React.VFC = () => {
         </NotFoundDescription>
         <GoToMainButton to="/">홈으로</GoToMainButton>
       </NotFoundPageWrapper>
-    </Layout>
+    </>
   )
 }
 

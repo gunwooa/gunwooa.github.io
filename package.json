@@ -53,6 +53,7 @@
     "start": "gatsby clean && gatsby develop",
     "build": "gatsby clean && gatsby build",
     "serve": "gatsby serve",
+    "build:serve": "yarn build && yarn serve",
     "deploy": "gatsby build && gh-pages -d public -b main",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""

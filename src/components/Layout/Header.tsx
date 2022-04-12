@@ -87,7 +87,7 @@ const HomeLink = styled(Link)`
     padding: 0.6rem;
     border-radius: 0.6rem;
     :hover {
-      background-color: ${colors.hoverBox};
+      background-color: ${props => props.theme.colors.hoverBox};
     }
   }
 
@@ -102,7 +102,7 @@ const MenuLink = styled(Link)`
     padding: 0.6rem;
     border-radius: 50%;
     :hover {
-      background-color: ${colors.hoverBox};
+      background-color: ${props => props.theme.colors.hoverBox};
     }
   }
 `

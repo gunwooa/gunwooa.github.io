@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import { useSiteMetadata } from 'hooks/use-site-metadata'
+import { useSiteMetadata } from 'hooks/useGetSiteMetadata'
 import { colors } from 'styles'
 
 type SEOProps = {

@@ -4,7 +4,6 @@ import { css } from '@emotion/react'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 import SEO from 'components/SEO'
-import Layout from 'components/Layout'
 import Tags from 'components/Tags'
 import Divider from 'components/Divider'
 import CommentWidget from 'components/CommentWidget'
@@ -33,7 +32,7 @@ const PostTemplate: React.VFC<PostTemplateProps> = ({
   const tags = frontmatter.tag.map(tag => `#${tag}`).join(' ')
 
   return (
-    <Layout>
+    <>
       <SEO
         title={`${frontmatter.category} | ${frontmatter.title}`}
         description={`${frontmatter.summary} ${tags}`}
@@ -103,7 +102,7 @@ const PostTemplate: React.VFC<PostTemplateProps> = ({
       />
 
       <CommentWidget />
-    </Layout>
+    </>
   )
 }
 

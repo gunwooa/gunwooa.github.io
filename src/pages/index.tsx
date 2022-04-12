@@ -5,7 +5,6 @@ import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
 import SEO from 'components/SEO'
-import Layout from 'components/Layout'
 import ProfileBox from 'components/ProfileBox'
 import Divider from 'components/Divider'
 import Tags from 'components/Tags'
@@ -28,7 +27,7 @@ const IndexPage: React.VFC<IndexPageProps> = ({
   },
 }) => {
   return (
-    <Layout>
+    <>
       <SEO />
       <IndexBox>
         <ProfileBox />
@@ -97,7 +96,7 @@ const IndexPage: React.VFC<IndexPageProps> = ({
           })}
         </PostList>
       </IndexBox>
-    </Layout>
+    </>
   )
 }
 
