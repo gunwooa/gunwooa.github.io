@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'gatsby'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { IoLogoBuffer } from 'react-icons/io'
 import { HiViewGrid } from 'react-icons/hi'
 import { GiOverkill } from 'react-icons/gi'
+import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs'
+
+import { StoreContext } from 'app/StoreProvider'
 
 import {
-  colors,
   pcMediaQuery,
   mobileMediaQuery,
   layoutWidth,
@@ -16,6 +18,12 @@ import {
 } from 'styles'
 
 const Header: React.VFC = () => {
+  const {
+    darkMode: { isDarkMode, setIsDarkMode },
+  } = useContext(StoreContext)
+
+  console.log('dark mode: ', isDarkMode)
+
   return (
     <HeaderBox>
       <div
@@ -40,6 +48,45 @@ const Header: React.VFC = () => {
             display: flex;
           `}
         >
+          {/* TODO: 리팩터링 */}
+          <ToggleBtn
+            checked={isDarkMode}
+            onClick={() => {
+              setIsDarkMode()
+            }}
+          >
+            <BsFillSunFill
+              css={theme => ({
+                position: 'relative',
+                top: '0.6rem',
+                left: '0.6rem',
+
+                color: theme.colors.gray900,
+
+                height: `3rem`,
+                width: !isDarkMode ? `3rem` : '0rem',
+
+                transition: '0.5s',
+                transform: !isDarkMode ? 'rotate(0deg)' : 'rotate(360deg)',
+              })}
+            />
+            <BsFillMoonFill
+              css={theme => ({
+                position: 'absolute',
+                top: '0.6rem',
+                left: '0.6rem',
+
+                color: theme.colors.white,
+
+                height: `3rem`,
+                width: isDarkMode ? `3rem` : '0rem',
+
+                transition: '0.5s',
+                transform: isDarkMode ? 'rotate(0deg)' : 'rotate(360deg)',
+              })}
+            />
+          </ToggleBtn>
+
           <MenuLink
             css={css`
               margin-right: 1rem;
@@ -58,6 +105,21 @@ const Header: React.VFC = () => {
     </HeaderBox>
   )
 }
+
+const ToggleBtn = styled.div<{ checked: boolean }>`
+  position: relative;
+  width: 4.2rem;
+  height: 4.2rem;
+  margin-right: 1rem;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  :hover {
+    background-color: ${props => props.theme.colors.hoverBox};
+  }
+`
 
 const HeaderBox = styled.div`
   position: sticky;

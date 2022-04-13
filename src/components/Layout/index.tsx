@@ -1,5 +1,6 @@
 import React from 'react'
 import { Global } from '@emotion/react'
+import styled from '@emotion/styled'
 
 import Header from 'components/Layout/Header'
 import Body from 'components/Layout/Body'
@@ -11,10 +12,21 @@ const Layout: React.FC = ({ children }) => {
     <>
       <Global styles={resetStyles} />
       <Header />
-      <Body>{children}</Body>
+      <BodyWrapper>
+        <Body>{children}</Body>
+      </BodyWrapper>
       <Footer />
     </>
   )
 }
+
+const BodyWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: ${props => props.theme.colors.themeColor};
+  background-color: ${props => props.theme.colors.themeBackground};
+`
 
 export default Layout

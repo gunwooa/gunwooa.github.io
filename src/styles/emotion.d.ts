@@ -19,8 +19,13 @@ type Colors = {
   hoverBox: string
 }
 
+type ThemeColors = {
+  themeColor: string
+  themeBackground: string
+}
+
 declare module '@emotion/react' {
   export interface Theme {
-    colors: Colors
+    colors: Colors & ThemeColors
   }
 }
