@@ -25,8 +25,8 @@ const BodyWrapper = styled.div`
   flex-direction: column;
   align-items: center;
 
-  color: ${props => props.theme.colors.themeColor};
-  background-color: ${props => props.theme.colors.themeBackground};
+  color: ${props => props.theme.colors.darkModeColor};
+  background-color: ${props => props.theme.colors.darkModeBackground};
 `
 
 export default Layout

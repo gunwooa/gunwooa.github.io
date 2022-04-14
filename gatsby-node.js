@@ -15,6 +15,7 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
         styles: path.resolve(__dirname, 'src/styles'),
         types: path.resolve(__dirname, 'src/types'),
         app: path.resolve(__dirname, 'src/app'),
+        providers: path.resolve(__dirname, 'src/providers'),
       },
     },
   })

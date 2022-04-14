@@ -7,7 +7,7 @@ import { HiViewGrid } from 'react-icons/hi'
 import { GiOverkill } from 'react-icons/gi'
 import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs'
 
-import { StoreContext } from 'app/StoreProvider'
+import { StoreContext } from 'providers/StoreProvider'
 
 import {
   pcMediaQuery,
@@ -18,11 +18,9 @@ import {
 } from 'styles'
 
 const Header: React.VFC = () => {
-  const {
-    darkMode: { isDarkMode, setIsDarkMode },
-  } = useContext(StoreContext)
+  const { themeMode } = useContext(StoreContext)
 
-  console.log('dark mode: ', isDarkMode)
+  console.log('dark mode: ', themeMode)
 
   return (
     <HeaderBox>
@@ -50,9 +48,9 @@ const Header: React.VFC = () => {
         >
           {/* TODO: 리팩터링 */}
           <ToggleBtn
-            checked={isDarkMode}
+            checked={themeMode.theme === 'dark'}
             onClick={() => {
-              setIsDarkMode()
+              themeMode.toggleTheme()
             }}
           >
             <BsFillSunFill
@@ -64,10 +62,10 @@ const Header: React.VFC = () => {
                 color: theme.colors.gray900,
 
                 height: `3rem`,
-                width: !isDarkMode ? `3rem` : '0rem',
+                width: !(themeMode.theme === 'dark') ? `3rem` : '0rem',
 
                 transition: '0.5s',
-                transform: !isDarkMode ? 'rotate(0deg)' : 'rotate(360deg)',
+                transform: !(themeMode.theme === 'dark') ? 'rotate(0deg)' : 'rotate(360deg)',
               })}
             />
             <BsFillMoonFill
@@ -79,10 +77,10 @@ const Header: React.VFC = () => {
                 color: theme.colors.white,
 
                 height: `3rem`,
-                width: isDarkMode ? `3rem` : '0rem',
+                width: themeMode.theme === 'dark' ? `3rem` : '0rem',
 
                 transition: '0.5s',
-                transform: isDarkMode ? 'rotate(0deg)' : 'rotate(360deg)',
+                transform: themeMode.theme === 'dark' ? 'rotate(0deg)' : 'rotate(360deg)',
               })}
             />
           </ToggleBtn>
