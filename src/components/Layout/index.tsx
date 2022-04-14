@@ -1,14 +1,17 @@
 import React, { useContext } from 'react'
+
 import { Global } from '@emotion/react'
 import styled from '@emotion/styled'
 
-import Header from 'components/Layout/Header'
+import { StoreContext } from 'providers/StoreProvider'
+import { Theme } from 'providers/StoreProvider/themeMode'
+
 import Body from 'components/Layout/Body'
 import Footer from 'components/Layout/Footer'
-import { StoreContext } from 'providers/StoreProvider'
+import Header from 'components/Layout/Header'
+
 import { mainGradientAnimation } from 'styles'
 import { resetStyles } from 'styles/reset'
-import { Theme } from 'providers/StoreProvider/themeMode'
 
 const Layout: React.FC = ({ children }) => {
   const {

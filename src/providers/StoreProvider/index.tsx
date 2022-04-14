@@ -8,7 +8,7 @@ const initialState: InitialState = { ...initThemeMode }
 
 export const StoreContext = createContext<InitialState>(initialState)
 
-const StoreProvider: React.FC = ({ children }) => {
+export const StoreProvider: React.FC = ({ children }) => {
   return (
     <StoreContext.Provider
       value={{
@@ -19,5 +19,3 @@ const StoreProvider: React.FC = ({ children }) => {
     </StoreContext.Provider>
   )
 }
-
-export default StoreProvider

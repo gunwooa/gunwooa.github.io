@@ -1,7 +1,8 @@
 import React from 'react'
+
 import styled from '@emotion/styled'
 
-import { mobileMediaQuery, layoutWidth, headerFooterHeight } from 'styles'
+import { headerFooterHeight, layoutWidth, mobileMediaQuery } from 'styles'
 
 type LayoutProps = {}
 

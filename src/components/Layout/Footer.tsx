@@ -1,9 +1,11 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import styled from '@emotion/styled'
-import { css } from '@emotion/react'
 
-import { pcMediaQuery, mobileMediaQuery, layoutWidth, headerFooterHeight } from 'styles'
+import { Link } from 'gatsby'
+
+import { css } from '@emotion/react'
+import styled from '@emotion/styled'
+
+import { headerFooterHeight, layoutWidth, mobileMediaQuery, pcMediaQuery } from 'styles'
 
 const Footer: React.VFC = () => {
   const today = new Date()

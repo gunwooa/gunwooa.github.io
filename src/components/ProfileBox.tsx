@@ -1,13 +1,15 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
-import { css } from '@emotion/react'
-
 import { SiLinkedin, SiNotion } from 'react-icons/si'
 import { VscGithub } from 'react-icons/vsc'
 
+import { graphql, useStaticQuery } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
+
+import { css } from '@emotion/react'
+
 import { Thumbnail } from 'types'
-import { colors, pcMediaQuery, mobileMediaQuery } from 'styles'
+
+import { colors, mobileMediaQuery, pcMediaQuery } from 'styles'
 
 const CONNECTS = [
   {

@@ -1,8 +1,10 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
+import { graphql, useStaticQuery } from 'gatsby'
+
 import { useSiteMetadata } from 'hooks/useGetSiteMetadata'
+
 import { colors } from 'styles'
 
 type SEOProps = {
