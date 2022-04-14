@@ -9,7 +9,7 @@ import ProfileBox from 'components/ProfileBox'
 import Divider from 'components/Divider'
 import Tags from 'components/Tags'
 import { Edges } from 'types'
-import { layoutWidth, mobileMediaQuery, pcMediaQuery } from 'styles'
+import { layoutWidth, mobileMediaQuery, pcMediaQuery, colors } from 'styles'
 
 type IndexPageProps = {
   data: {
@@ -61,11 +61,13 @@ const IndexPage: React.VFC<IndexPageProps> = ({
                         > h1 {
                           font-size: 1.8rem;
                           line-height: 1.5;
+                          color: ${colors.black};
                         }
                         > p {
                           margin: 2rem 0;
                           font-size: 1.5rem;
                           line-height: 1.5;
+                          color: ${colors.black};
                         }
                       `}
                     >
@@ -83,6 +85,7 @@ const IndexPage: React.VFC<IndexPageProps> = ({
 
                         > span {
                           font-size: 1.3rem;
+                          color: ${colors.black};
                         }
                       `}
                     >
