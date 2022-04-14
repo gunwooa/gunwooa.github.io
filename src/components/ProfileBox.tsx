@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { css } from '@emotion/react'
-import styled from '@emotion/styled'
 
 import { SiLinkedin, SiNotion } from 'react-icons/si'
 import { VscGithub } from 'react-icons/vsc'
@@ -56,6 +55,7 @@ const ProfileBox: React.VFC = () => {
         css={css`
           isolation: isolate; // 사파리 브라우저 border-radius 동작되게 하는 속성
           border-radius: 50%;
+          box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.8);
         `}
         image={profile.childImageSharp.gatsbyImageData}
         alt="photo"
@@ -131,6 +131,7 @@ const ProfileBox: React.VFC = () => {
             >
               <a href={item.url} target="_blank" rel="noreferrer noopener" aria-label={item.label}>
                 <item.icon
+                  className="profile-icon"
                   css={css`
                     width: 2.4rem;
                     height: 2.4rem;

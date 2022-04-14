@@ -9,7 +9,7 @@ const Footer: React.VFC = () => {
   const today = new Date()
 
   return (
-    <FooterBox>
+    <FooterBox className="footer">
       <div
         css={css`
           display: flex;

@@ -14,7 +14,9 @@
       "utils/*": ["./utils/*"],
       "hooks/*": ["./hooks/*"],
       "styles/*": ["./styles/*"],
-      "types/*": ["./types/*"]
+      "types/*": ["./types/*"],
+      "app/*": ["./app/*"],
+      "providers/*": ["./providers/*"]
     },
     "esModuleInterop": true,
     "skipLibCheck": true,

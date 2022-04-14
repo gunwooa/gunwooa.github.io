@@ -12,7 +12,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 const LayoutWrapper = styled.div`
   width: ${layoutWidth}rem;
   min-height: calc(100vh - ${headerFooterHeight.pc * 2}rem);
-  margin: 0 auto;
   padding: 5rem 0 10rem 0;
 
   ${mobileMediaQuery} {

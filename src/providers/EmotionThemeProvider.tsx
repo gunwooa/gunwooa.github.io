@@ -9,6 +9,7 @@ const EmotionThemeProvider: React.FC = ({ children }) => {
       ...colors,
     },
   })
+
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>
 }
 

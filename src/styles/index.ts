@@ -23,7 +23,7 @@ export const colors = {
   gray800: `#424242`,
   gray900: `#222222`,
   hoverBox: `rgba(0, 0, 0, 0.2)`,
-}
+} as const // 바뀌지않는 상수, 자동완성될떄 지정한값이보임 ㅋ
 
 export const mainGradientAnimation = css`
   background-image: linear-gradient(to left, #eeaeca, #42a5f5, #26c6da);
