@@ -1,15 +1,20 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+
+import { Link, graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
+
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
 import SEO from 'app/SEO'
-import ProfileBox from 'components/ProfileBox'
+
 import Divider from 'components/Divider'
+import ProfileBox from 'components/ProfileBox'
 import Tags from 'components/Tags'
+
 import { Edges } from 'types'
-import { layoutWidth, mobileMediaQuery, pcMediaQuery, colors } from 'styles'
+
+import { colors, layoutWidth, mobileMediaQuery, pcMediaQuery } from 'styles'
 
 type IndexPageProps = {
   data: {

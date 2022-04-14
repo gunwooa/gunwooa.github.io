@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { css } from '@emotion/react'
+
 import { colors } from 'styles'
 
 type DividerProps = {

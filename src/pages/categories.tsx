@@ -1,11 +1,15 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+
+import { Link, graphql } from 'gatsby'
+
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
 import SEO from 'app/SEO'
-import { colors, mobileMediaQuery, pcMediaQuery } from 'styles'
+
 import { Edges } from 'types'
+
+import { colors, mobileMediaQuery, pcMediaQuery } from 'styles'
 
 type CategoriesPageProps = {
   data: {

@@ -1,14 +1,18 @@
 import React from 'react'
+import { GiOverkill } from 'react-icons/gi'
+import { HiViewGrid } from 'react-icons/hi'
+import { IoLogoBuffer } from 'react-icons/io'
+
 import { Link } from 'gatsby'
+
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import { IoLogoBuffer } from 'react-icons/io'
-import { HiViewGrid } from 'react-icons/hi'
-import { GiOverkill } from 'react-icons/gi'
 
 import ThemeModeToggleBtn from 'components/ThemeModeToggleBtn'
+
 import { useWindowSize } from 'hooks/useWindowSize'
-import { pcMediaQuery, mobileMediaQuery, layoutWidth, headerFooterHeight } from 'styles'
+
+import { headerFooterHeight, layoutWidth, mobileMediaQuery, pcMediaQuery } from 'styles'
 
 const Header: React.VFC = () => {
   const { width: windowWidth } = useWindowSize()
@@ -37,8 +41,8 @@ const Header: React.VFC = () => {
           `}
         >
           <ThemeModeToggleBtn
-            size={windowWidth > layoutWidth ? 3 : 2.6}
-            padding={windowWidth > layoutWidth ? 0.6 : 0}
+            size={windowWidth > layoutWidth ? 2.8 : 2.4}
+            padding={windowWidth > layoutWidth ? 0.8 : 0}
           />
 
           <MenuLink

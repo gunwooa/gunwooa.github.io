@@ -9,7 +9,7 @@ export type ThemeMode = {
   }
 }
 
-export const initThemeMode = {
+export const initThemeMode: ThemeMode = {
   themeMode: {
     theme: 'light',
     toggleTheme: () => {},
@@ -32,9 +32,9 @@ export const themeMode = (): ThemeMode => {
     const prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches
       ? 'dark'
       : 'light'
-
     const localTheme = localStorage.getItem('theme')
     const initialTheme = localTheme || prefersColorScheme
+
     // @ts-expect-error
     setTheme(initialTheme)
   }, [])

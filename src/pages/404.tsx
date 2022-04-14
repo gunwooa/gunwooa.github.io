@@ -1,8 +1,11 @@
 import React from 'react'
-import styled from '@emotion/styled'
+
 import { Link } from 'gatsby'
 
+import styled from '@emotion/styled'
+
 import SEO from 'app/SEO'
+
 import { mobileMediaQuery } from 'styles'
 
 const NotFoundPage: React.VFC = () => {

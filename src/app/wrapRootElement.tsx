@@ -1,9 +1,11 @@
 import React from 'react'
+
 import type { GatsbyBrowser } from 'gatsby'
+
 import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader'
 
-import StoreProvider from 'providers/StoreProvider'
-import EmotionThemeProvider from 'providers/EmotionThemeProvider'
+import { EmotionThemeProvider } from 'providers/EmotionThemeProvider'
+import { StoreProvider } from 'providers/StoreProvider'
 
 deckDeckGoHighlightElement()
 

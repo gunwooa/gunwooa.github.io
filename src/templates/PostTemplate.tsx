@@ -1,17 +1,23 @@
 import React from 'react'
+
 import { graphql } from 'gatsby'
-import { css } from '@emotion/react'
-import styled from '@emotion/styled'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
+import { css } from '@emotion/react'
+import styled from '@emotion/styled'
+
 import SEO from 'app/SEO'
-import Tags from 'components/Tags'
-import Divider from 'components/Divider'
+
 import CommentWidget from 'components/CommentWidget'
-import { markdownStyle } from 'styles/markdown'
-import { Edges } from 'types'
-import { colors, mobileMediaQuery, layoutWidth } from 'styles'
+import Divider from 'components/Divider'
+import Tags from 'components/Tags'
+
 import { useWindowSize } from 'hooks/useWindowSize'
+
+import { Edges } from 'types'
+
+import { colors, layoutWidth, mobileMediaQuery } from 'styles'
+import { markdownStyle } from 'styles/markdown'
 
 type PostTemplateProps = {
   data: {

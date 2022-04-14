@@ -1,4 +1,5 @@
 import React from 'react'
+
 import type { GatsbyBrowser } from 'gatsby'
 
 import Layout from 'components/Layout'
