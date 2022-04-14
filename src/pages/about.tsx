@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from '@emotion/styled'
 
-import SEO from 'components/SEO'
+import SEO from 'app/SEO'
 import Divider from 'components/Divider'
 import ProfileBox from 'components/ProfileBox'
 import { markdownStyle } from 'styles/markdown'

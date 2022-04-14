@@ -4,7 +4,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
-import SEO from 'components/SEO'
+import SEO from 'app/SEO'
 import ProfileBox from 'components/ProfileBox'
 import Divider from 'components/Divider'
 import Tags from 'components/Tags'

@@ -102,7 +102,7 @@ const SEO: React.VFC<SEOProps> = ({ title, description, thumbnail }) => {
         },
         {
           name: 'theme-color',
-          content: colors.blue100,
+          content: colors.white,
         },
       ]}
       htmlAttributes={{ lang: 'ko' }}

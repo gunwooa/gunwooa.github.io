@@ -3,7 +3,7 @@ import { graphql, Link } from 'gatsby'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
-import SEO from 'components/SEO'
+import SEO from 'app/SEO'
 import { colors, mobileMediaQuery, pcMediaQuery } from 'styles'
 import { Edges } from 'types'
 
