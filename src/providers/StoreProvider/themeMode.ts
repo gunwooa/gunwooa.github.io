@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-type Theme = 'dark' | 'light' | string // FIXME: string 타입은 localStorage 때문에 어쩔수 없이 선언.
+export type Theme = 'dark' | 'light'
 
 export type ThemeMode = {
   themeMode: {
@@ -35,6 +35,7 @@ export const themeMode = (): ThemeMode => {
 
     const localTheme = localStorage.getItem('theme')
     const initialTheme = localTheme || prefersColorScheme
+    // @ts-expect-error
     setTheme(initialTheme)
   }, [])
 

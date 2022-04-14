@@ -4,7 +4,7 @@ import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
 import SEO from 'components/SEO'
-import { colors, mainGradientAnimation, mobileMediaQuery, pcMediaQuery } from 'styles'
+import { colors, mobileMediaQuery, pcMediaQuery } from 'styles'
 import { Edges } from 'types'
 
 type CategoriesPageProps = {
@@ -33,12 +33,12 @@ const CategoriesPage: React.VFC<CategoriesPageProps> = ({
             const { fieldValue, totalCount, edges } = category
             return (
               <CategoriesItemBox key={index}>
-                <CategoriesLeftItem>
+                <CategoriesLeftItem className="category-title-box">
                   <CategoriesLITitle>{fieldValue}</CategoriesLITitle>
                   <CategoriesLISubText>{totalCount} posts</CategoriesLISubText>
                 </CategoriesLeftItem>
 
-                <CategoriesRightItem>
+                <CategoriesRightItem className="contents-title-box">
                   {edges.map(edge => {
                     const {
                       node: { id, fields, frontmatter },
@@ -111,7 +111,6 @@ const CategoriesLeftItem = styled.div`
   display: flex;
   flex-direction: column;
   padding: 3rem;
-  ${mainGradientAnimation};
 
   ${mobileMediaQuery} {
     flex-direction: row;
@@ -161,7 +160,7 @@ const CategoriesRILinkBox = styled(Link)`
   ${pcMediaQuery} {
     :hover > span {
       font-weight: 600;
-      color: ${colors.gray700};
+      color: ${colors.gray500};
     }
 
     :hover .tooltip-box {

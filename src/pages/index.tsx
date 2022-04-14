@@ -42,7 +42,7 @@ const IndexPage: React.VFC<IndexPageProps> = ({
             } = node
 
             return (
-              <PostLinkItem key={id}>
+              <PostLinkItem className="post-card" key={id}>
                 <Link to={slug}>
                   <GatsbyImage
                     css={css`
@@ -116,7 +116,6 @@ const PostList = styled.ul`
 const PostLinkItem = styled.li`
   display: flex;
   flex-direction: column;
-
   width: ${THUMBNAIL_WIDTH}rem;
   margin-bottom: 2rem;
   border-radius: 0.8rem;

@@ -1,7 +1,7 @@
 import React from 'react'
 import { css } from '@emotion/react'
 
-import { colors, mainGradientAnimation } from 'styles'
+import { colors } from 'styles'
 
 type TagsProps = {
   tags: string[]
@@ -44,6 +44,7 @@ const Tags: React.VFC<TagsProps> = ({ tags, size = 'small' }) => {
       {tags.map(tag => (
         <span
           key={tag}
+          className="tag"
           css={css`
             margin: ${SIZE.margin[size]};
             padding: ${SIZE.padding[size]};
@@ -51,7 +52,6 @@ const Tags: React.VFC<TagsProps> = ({ tags, size = 'small' }) => {
             font-size: ${SIZE.fontSize[size]}rem;
             font-weight: 600;
             color: ${colors.white};
-            ${mainGradientAnimation};
           `}
         >
           {tag}

@@ -1,32 +1,100 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Global } from '@emotion/react'
 import styled from '@emotion/styled'
 
 import Header from 'components/Layout/Header'
 import Body from 'components/Layout/Body'
 import Footer from 'components/Layout/Footer'
+import { StoreContext } from 'providers/StoreProvider'
+import { mainGradientAnimation } from 'styles'
 import { resetStyles } from 'styles/reset'
+import { Theme } from 'providers/StoreProvider/themeMode'
 
 const Layout: React.FC = ({ children }) => {
+  const {
+    themeMode: { theme },
+  } = useContext(StoreContext)
+
   return (
     <>
       <Global styles={resetStyles} />
-      <Header />
-      <BodyWrapper>
+      <HeaderWrapper themeMode={theme}>
+        <Header />
+      </HeaderWrapper>
+      <BodyWrapper themeMode={theme}>
         <Body>{children}</Body>
       </BodyWrapper>
-      <Footer />
+      <FooterWrapper themeMode={theme}>
+        <Footer />
+      </FooterWrapper>
     </>
   )
 }
 
-const BodyWrapper = styled.div`
+const HeaderWrapper = styled.div<{ themeMode: Theme }>`
+  position: sticky;
+  top: 0;
+  z-index: 99;
+
+  .header {
+    ${({ themeMode }) => themeMode === 'light' && mainGradientAnimation};
+    background-color: ${({ theme, themeMode }) => themeMode === 'dark' && theme.colors.gray800};
+  }
+`
+
+const BodyWrapper = styled.div<{ themeMode: Theme }>`
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: all 0.5s ease-in-out;
 
-  color: ${props => props.theme.colors.darkModeColor};
-  background-color: ${props => props.theme.colors.darkModeBackground};
+  background-color: ${({ theme, themeMode }) => (themeMode === 'dark' ? theme.colors.gray900 : '')};
+
+  h1,
+  h2,
+  h3,
+  p,
+  li,
+  span {
+    color: ${({ theme, themeMode }) => (themeMode === 'dark' ? theme.colors.white : '')};
+  }
+
+  .profile-icon {
+    color: ${({ theme, themeMode }) => (themeMode === 'dark' ? theme.colors.white : '')};
+  }
+
+  .post-card {
+    background-color: ${({ theme, themeMode }) =>
+      themeMode === 'dark' ? theme.colors.gray800 : ''};
+  }
+
+  .tag {
+    ${({ themeMode }) => themeMode === 'light' && mainGradientAnimation};
+    background-color: ${({ theme, themeMode }) =>
+      themeMode === 'dark' ? theme.colors.gray700 : ''};
+  }
+
+  .category-title-box {
+    ${({ themeMode }) => themeMode === 'light' && mainGradientAnimation};
+    background-color: ${({ theme, themeMode }) =>
+      themeMode === 'dark' ? theme.colors.gray800 : ''};
+  }
+
+  .contents-title-box {
+    background-color: ${({ theme, themeMode }) =>
+      themeMode === 'dark' ? theme.colors.gray700 : ''};
+  }
+`
+const FooterWrapper = styled.div<{ themeMode: Theme }>`
+  .footer {
+    background-color: ${({ theme, themeMode }) =>
+      themeMode === 'dark' ? theme.colors.gray700 : ''};
+  }
+
+  a,
+  span {
+    color: ${({ theme, themeMode }) => (themeMode === 'dark' ? theme.colors.white : '')};
+  }
 `
 
 export default Layout

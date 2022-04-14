@@ -8,18 +8,12 @@ import { GiOverkill } from 'react-icons/gi'
 
 import ThemeModeToggleBtn from 'components/ThemeModeToggleBtn'
 import { useWindowSize } from 'hooks/useWindowSize'
-import {
-  pcMediaQuery,
-  mobileMediaQuery,
-  layoutWidth,
-  headerFooterHeight,
-  mainGradientAnimation,
-} from 'styles'
+import { pcMediaQuery, mobileMediaQuery, layoutWidth, headerFooterHeight } from 'styles'
 
 const Header: React.VFC = () => {
   const { width: windowWidth } = useWindowSize()
   return (
-    <HeaderBox>
+    <HeaderBox className="header">
       <div
         css={css`
           display: flex;
@@ -68,15 +62,10 @@ const Header: React.VFC = () => {
 }
 
 const HeaderBox = styled.div`
-  position: sticky;
-  top: 0;
-  z-index: 99;
   display: flex;
   justify-content: center;
   width: 100%;
   height: ${headerFooterHeight.pc}rem;
-
-  ${mainGradientAnimation};
 
   ${mobileMediaQuery} {
     height: ${headerFooterHeight.mobile}rem;
