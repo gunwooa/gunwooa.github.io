@@ -19,12 +19,18 @@ const AboutPage: React.VFC<AboutPageProps> = ({ data: { resume } }) => {
   return (
     <>
       <SEO title="About | GW Devlog" />
-      <ProfileBox />
-      <Divider marginBottom={4} />
-      <ResumeRenderer dangerouslySetInnerHTML={{ __html: resume.childrenMarkdownRemark[0].html }} />
+      <AboutBox>
+        <ProfileBox />
+        <Divider marginBottom={4} />
+        <ResumeRenderer
+          dangerouslySetInnerHTML={{ __html: resume.childrenMarkdownRemark[0].html }}
+        />
+      </AboutBox>
     </>
   )
 }
+
+const AboutBox = styled.div``
 
 const ResumeRenderer = styled.main`
   ${markdownStyle};
