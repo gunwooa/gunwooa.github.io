@@ -1,14 +1,13 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Link } from 'gatsby'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { IoLogoBuffer } from 'react-icons/io'
 import { HiViewGrid } from 'react-icons/hi'
 import { GiOverkill } from 'react-icons/gi'
-import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs'
 
-import { StoreContext } from 'providers/StoreProvider'
-
+import ThemeModeToggleBtn from 'components/ThemeModeToggleBtn'
+import { useWindowSize } from 'hooks/useWindowSize'
 import {
   pcMediaQuery,
   mobileMediaQuery,
@@ -18,10 +17,7 @@ import {
 } from 'styles'
 
 const Header: React.VFC = () => {
-  const { themeMode } = useContext(StoreContext)
-
-  console.log('dark mode: ', themeMode)
-
+  const { width: windowWidth } = useWindowSize()
   return (
     <HeaderBox>
       <div
@@ -46,47 +42,14 @@ const Header: React.VFC = () => {
             display: flex;
           `}
         >
-          {/* TODO: 리팩터링 */}
-          <ToggleBtn
-            checked={themeMode.theme === 'dark'}
-            onClick={() => {
-              themeMode.toggleTheme()
-            }}
-          >
-            <BsFillSunFill
-              css={theme => ({
-                position: 'relative',
-                top: '0.6rem',
-                left: '0.6rem',
-
-                color: theme.colors.gray900,
-
-                height: `3rem`,
-                width: !(themeMode.theme === 'dark') ? `3rem` : '0rem',
-
-                transition: '0.5s',
-                transform: !(themeMode.theme === 'dark') ? 'rotate(0deg)' : 'rotate(360deg)',
-              })}
-            />
-            <BsFillMoonFill
-              css={theme => ({
-                position: 'absolute',
-                top: '0.6rem',
-                left: '0.6rem',
-
-                color: theme.colors.white,
-
-                height: `3rem`,
-                width: themeMode.theme === 'dark' ? `3rem` : '0rem',
-
-                transition: '0.5s',
-                transform: themeMode.theme === 'dark' ? 'rotate(0deg)' : 'rotate(360deg)',
-              })}
-            />
-          </ToggleBtn>
+          <ThemeModeToggleBtn
+            size={windowWidth > layoutWidth ? 3 : 2.6}
+            padding={windowWidth > layoutWidth ? 0.6 : 0}
+          />
 
           <MenuLink
             css={css`
+              margin-left: 1rem;
               margin-right: 1rem;
             `}
             to="/categories"
@@ -103,21 +66,6 @@ const Header: React.VFC = () => {
     </HeaderBox>
   )
 }
-
-const ToggleBtn = styled.div<{ checked: boolean }>`
-  position: relative;
-  width: 4.2rem;
-  height: 4.2rem;
-  margin-right: 1rem;
-
-  border-radius: 50%;
-
-  cursor: pointer;
-
-  :hover {
-    background-color: ${props => props.theme.colors.hoverBox};
-  }
-`
 
 const HeaderBox = styled.div`
   position: sticky;
