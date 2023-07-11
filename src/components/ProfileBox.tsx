@@ -19,12 +19,6 @@ const CONNECTS = [
     color: '#0B65C2',
   },
   { label: 'github', url: 'https://github.com/gunwooa', icon: VscGithub, color: '#000000' },
-  {
-    label: 'notion',
-    url: 'https://grandiose-soul-322.notion.site/7d3f32a52a884091b70831eb342391a9',
-    icon: SiNotion,
-    color: '#000000',
-  },
 ]
 
 const ProfileBox: React.VFC = () => {
@@ -87,7 +81,7 @@ const ProfileBox: React.VFC = () => {
               }
             `}
           >
-            장건우 (GW D)
+            장건우 (GWD)
           </h3>
           <p
             css={css`
@@ -102,7 +96,7 @@ const ProfileBox: React.VFC = () => {
               }
             `}
           >
-            3년차 프론트엔드 개발자입니다. 💻
+            코딩하기 딱 좋은 날씨네 ⛅️
           </p>
         </div>
 
