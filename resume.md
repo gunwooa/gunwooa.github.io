@@ -1,10 +1,10 @@
 ```js
-const PROFILE = {
-    name: '장건우',
-    career: '프론트엔드 3년차',
-    birthDate: '1993-11-04',
-    email: 'gunwooooa@gmail.com',
-    skills: ['ES6', 'TypeScript', 'React', 'NextJS', 'ReactNative', ...]
+let PROFILE = {
+    이름: '장건우',
+    경력: '5년차',
+    좌우명: ['하면 된다', 'just do it', '네가하면 나도한다'],
+    보유기술: ['TypeScript', 'React', 'Next.js', 'React Native',
+             'React Query', 'AWS (S3 | CloudFront | Amplify)', ...]
 }
 ```
 
